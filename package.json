@@ -1,16 +1,17 @@
 {
-  "name": "jess",
-  "displayName": "jess",
-  "description": "A VSCode Extension for Scandia Labs' JESS",
-  "repository": {"url": "https://github.com/andrewIsaacFox/jess"},
-  "version": "0.0.1",
+  "name": "jess-colors",
+  "displayName": "JESS",
+  "description": "A VSCode Extension for Sandia Labs' JESS",
+  "icon": "jess-icon.jpeg",
+  "repository": {"url": "https://github.com/andrewIsaacFox/jess.git"},
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.70.0"
   },
   "categories": [
     "Programming Languages"
   ],
-  "publisher": "Andrew Fox",
+  "publisher": "AndrewFox",
   "contributes": {
     "languages": [{
       "id": "jess",

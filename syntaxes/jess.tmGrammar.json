@@ -69,67 +69,67 @@
         },
         "misc": {
             "name": "keyword.misc",
-            "match": "\\b(bag|bind|clear-storage|fetch|gensym\\*|help|jess-version-number|jess-version-string|set-factory|setgen|store|system|time)\\b"
+            "match": "\\b(bag|bind|clear-storage|fetch|gensym\\*|help|jess-version-number|jess-version-string|set-factory|setgen|store|system|time)(?![a-zA-Z0-9_-])"
         },
         "io": {
             "name": "keyword.io",
-            "match": "\\b(close|format|get-multithread-io|open|printout|read|readline|set-multithread-io|socket)\\b"
+            "match": "\\b(close|format|get-multithread-io|open|printout|read|readline|set-multithread-io|socket)(?![a-zA-Z0-9_-])"
         },
         "java": {
             "name": "keyword.java",
-            "match": "\\b(add|as-list|call|context|defclass|definstance|get|get-member|implement|import|instanceof|load-function|load-package|new|set|set-member|set-nonvalue-class|set-value-class|synchronized|throw|try|undefinstance|update)\\b"
+            "match": "\\b(add|as-list|call|context|defclass|definstance|get|get-member|implement|import|instanceof|load-function|load-package|new|set|set-member|set-nonvalue-class|set-value-class|synchronized|throw|try|undefinstance|update)(?![a-zA-Z0-9_-])"
         },
         "logic": {
             "name": "keyword.logic",
-            "match": "\\b(and|bit-and|bit-not|bit-or|not|or)\\b"
+            "match": "\\b(and|bit-and|bit-not|bit-or|not|or)(?![a-zA-Z0-9_-])"
         },
         "debug": {
             "name": "keyword.debug",
-            "match": "\\b(jess-type|list-function\\$|matches|set-watch-router|show-jess-listeners|unwatch|view|watch)\\b"
+            "match": "\\b(jess-type|list-function\\$|matches|set-watch-router|show-jess-listeners|unwatch|view|watch)(?![a-zA-Z0-9_-])"
         },
         "query": {
             "name": "keyword.query",
-            "match": "\\b(count-query-results|run-query|run-query\\*)\\b"
+            "match": "\\b(count-query-results|run-query|run-query\\*)(?![a-zA-Z0-9_-])"
         },
         "control": {
             "name": "keyword.structure",
-            "match": "\\b(apply|break|call-on-engine|continue|else|filter|for|foreach|if|lambda|map|progn|return|then|while)\\b"
+            "match": "\\b(apply|break|call-on-engine|continue|else|filter|for|foreach|if|lambda|map|progn|return|then|while)(?![a-zA-Z0-9_-])"
         },
         "pprint": {
             "name": "keyword.pprint",
-            "match": "\\b(list-deftemplates|ppdeffacts|ppdeffunction|ppdefglobal|ppdefquery|ppdefrule|ppdeftemplate|rules|show-deffacts|show-deftemplates)\\b"
+            "match": "\\b(list-deftemplates|ppdeffacts|ppdeffunction|ppdefglobal|ppdefquery|ppdefrule|ppdeftemplate|rules|show-deffacts|show-deftemplates)(?![a-zA-Z0-9_-])"
         },
         "rule": {
             "name": "keyword.rule",
-            "match": "\\b(agenda|batch|bload|bsave|build|clear|clear-focus-stack|defadvice|do-backward-chaining|engine|eval|exit|focus|get-current-module|get-focus|get-focus-stack|get-reset-globals|get-salience-evaluation|get-strategy|halt|list-focus-stack|pop-focus|provide|require|require\\*|reset|run|run-until-halt|set-current-module|set-node-index-hash|set-reset-globals|set-salience-evaluation|set-strategy|undefadvice|undeffacts|undefrule)\\b"
+            "match": "\\b(agenda|batch|bload|bsave|build|clear|clear-focus-stack|defadvice|do-backward-chaining|engine|eval|exit|focus|get-current-module|get-focus|get-focus-stack|get-reset-globals|get-salience-evaluation|get-strategy|halt|list-focus-stack|pop-focus|provide|require|require\\*|reset|run|run-until-halt|set-current-module|set-node-index-hash|set-reset-globals|set-salience-evaluation|set-strategy|undefadvice|undeffacts|undefrule)(?![a-zA-Z0-9_-])"
         },
         "op": {
             "name": "keyword.op",
-            "match": "\\*|\\*\\*|\\+|\\+\\+|-|--|/|<|<=|<>|=|>|>="
+            "match": "(?![a-zA-Z0-9_-])(\\*|\\*\\*|\\+|\\+\\+|-|--|/|<|<=|<>|=|>|>=)(?![a-zA-Z0-9_-])"
         },
         "math": {
             "name": "keyword.math",
-            "match": "\\b(abs|div|e|eq|eq\\*|exp|float|integer|log|log10|long|max|min|mod|neq|pi|random|round|sqrt)\\b"
+            "match": "\\b(abs|div|e|eq|eq\\*|exp|float|integer|log|log10|long|max|min|mod|neq|pi|random|round|sqrt)(?![a-zA-Z0-9_-])"
         },
         "type": {
             "name": "keyword.type",
-            "match": "\\b(evenp|external-addressp|floatp|integerp|java-objectp|lexemep|listp|longp|multifieldp|numberp|oddp|stringp|subsetp|symbolp)\\b"
+            "match": "\\b(evenp|external-addressp|floatp|integerp|java-objectp|lexemep|listp|longp|multifieldp|numberp|oddp|stringp|subsetp|symbolp)(?![a-zA-Z0-9_-])"
         },
         "string": {
             "name": "keyword.string",
-            "match": "\\b(asc|lowcase|regexp|str-cat|str-compare|str-index|str-length|sub-string|sym-cat|upcase)\\b"
+            "match": "\\b(asc|lowcase|regexp|str-cat|str-compare|str-index|str-length|sub-string|sym-cat|upcase)(?![a-zA-Z0-9_-])"
         },
         "list": {
             "name": "keyword.list",
-            "match": "\\b(complement\\$|create\\$|delete\\$|explode\\$|first\\$|implode\\$|insert\\$|intersection\\$|length\\$|list|member\\$|nth\\$|replace\\$|rest\\$|subseq\\$|union\\$)\\b"
+            "match": "\\b(complement\\$|create\\$|delete\\$|explode\\$|first\\$|implode\\$|insert\\$|intersection\\$|length\\$|list|member\\$|nth\\$|replace\\$|rest\\$|subseq\\$|union\\$)(?![a-zA-Z0-9_-])"
         },
         "fact": {
             "name": "keyword.fact",
-            "match": "\\b(assert|assert-string|dependencies|dependents|duplicate|fact-id|fact-slot-value|facts|load-facts|modify|remove|retract|retract-string|save-facts|save-facts-xml)\\b"
+            "match": "\\b(assert|assert-string|dependencies|dependents|duplicate|fact-id|fact-slot-value|facts|load-facts|modify|remove|retract|retract-string|save-facts|save-facts-xml)(?![a-zA-Z0-9_-])"
         },
         "def": {
             "name": "keyword.def",
-            "match": "\\b(deffunction|defglobal)\\b"
+            "match": "\\b(deffunction|defglobal)(?![a-zA-Z0-9_-])"
         }
     }
 }
