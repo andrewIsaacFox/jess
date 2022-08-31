@@ -1,0 +1,135 @@
+{
+    "scopeName": "source.jess",
+    "patterns": [
+        {"include": "#comment-group"},
+        {"include": "#string-group"},
+        {"include": "#number"},
+        {"include": "#constant"},
+        {"include": "#function"}
+    ],
+    "repository": {
+        "comment-group": {
+            "patterns": [
+                {"include": "#line-comment"},
+                {"include": "#block-comment"}
+            ]
+        },
+        "line-comment": {
+            "name": "comment.line.semicolon",
+            "begin": ";",
+            "end": "$"
+        },
+        "block-comment": {
+            "name": "comment.block.documentation",
+            "begin": "/\\*",
+            "end": "\\*/"
+        },
+        "string-group": {
+            "patterns": [
+                {"include": "#single-string"},
+                {"include": "#multi-string"}
+            ]
+        },
+        "single-string": {
+            "name": "string.quoted.double",
+            "match": "\"[^\"]*\""
+        },
+        "multi-string": {
+            "name": "string.quoted.double.multiline",
+            "begin": "\"",
+            "end": "\""
+        },
+        "number": {
+            "name": "constant.numeric",
+            "match": "\\b(0x)?\\d+(\\.\\d+)?\\b"
+        },
+        "constant": {
+            "name": "constant.language",
+            "match": "\\b(TRUE|FALSE|NIL|crlf|t|NUL|SOH|STX|ETX|EOT|ENQ|ACK|BEL|BS|LF|VT|FF|CR|SO|SI|DLE|DC1|DC2|DC3|DC4|NAK|SYN|ETB|CAN|EM|SUB|ESC|FS|GS|RS|US|DEL)\\b"
+        },
+        "function": {
+            "patterns": [
+                {"include": "#misc"},
+                {"include": "#io"},
+                {"include": "#java"},
+                {"include": "#logic"},
+                {"include": "#debug"},
+                {"include": "#query"},
+                {"include": "#control"},
+                {"include": "#pprint"},
+                {"include": "#rule"},
+                {"include": "#op"},
+                {"include": "#math"},
+                {"include": "#type"},
+                {"include": "#string"},
+                {"include": "#list"},
+                {"include": "#fact"},
+                {"include": "#def"}
+            ]
+        },
+        "misc": {
+            "name": "keyword.misc",
+            "match": "\\b(bag|bind|clear-storage|fetch|gensym\\*|help|jess-version-number|jess-version-string|set-factory|setgen|store|system|time)\\b"
+        },
+        "io": {
+            "name": "keyword.io",
+            "match": "\\b(close|format|get-multithread-io|open|printout|read|readline|set-multithread-io|socket)\\b"
+        },
+        "java": {
+            "name": "keyword.java",
+            "match": "\\b(add|as-list|call|context|defclass|definstance|get|get-member|implement|import|instanceof|load-function|load-package|new|set|set-member|set-nonvalue-class|set-value-class|synchronized|throw|try|undefinstance|update)\\b"
+        },
+        "logic": {
+            "name": "keyword.logic",
+            "match": "\\b(and|bit-and|bit-not|bit-or|not|or)\\b"
+        },
+        "debug": {
+            "name": "keyword.debug",
+            "match": "\\b(jess-type|list-function\\$|matches|set-watch-router|show-jess-listeners|unwatch|view|watch)\\b"
+        },
+        "query": {
+            "name": "keyword.query",
+            "match": "\\b(count-query-results|run-query|run-query\\*)\\b"
+        },
+        "control": {
+            "name": "keyword.structure",
+            "match": "\\b(apply|break|call-on-engine|continue|else|filter|for|foreach|if|lambda|map|progn|return|then|while)\\b"
+        },
+        "pprint": {
+            "name": "keyword.pprint",
+            "match": "\\b(list-deftemplates|ppdeffacts|ppdeffunction|ppdefglobal|ppdefquery|ppdefrule|ppdeftemplate|rules|show-deffacts|show-deftemplates)\\b"
+        },
+        "rule": {
+            "name": "keyword.rule",
+            "match": "\\b(agenda|batch|bload|bsave|build|clear|clear-focus-stack|defadvice|do-backward-chaining|engine|eval|exit|focus|get-current-module|get-focus|get-focus-stack|get-reset-globals|get-salience-evaluation|get-strategy|halt|list-focus-stack|pop-focus|provide|require|require\\*|reset|run|run-until-halt|set-current-module|set-node-index-hash|set-reset-globals|set-salience-evaluation|set-strategy|undefadvice|undeffacts|undefrule)\\b"
+        },
+        "op": {
+            "name": "keyword.op",
+            "match": "\\*|\\*\\*|\\+|\\+\\+|-|--|/|<|<=|<>|=|>|>="
+        },
+        "math": {
+            "name": "keyword.math",
+            "match": "\\b(abs|div|e|eq|eq\\*|exp|float|integer|log|log10|long|max|min|mod|neq|pi|random|round|sqrt)\\b"
+        },
+        "type": {
+            "name": "keyword.type",
+            "match": "\\b(evenp|external-addressp|floatp|integerp|java-objectp|lexemep|listp|longp|multifieldp|numberp|oddp|stringp|subsetp|symbolp)\\b"
+        },
+        "string": {
+            "name": "keyword.string",
+            "match": "\\b(asc|lowcase|regexp|str-cat|str-compare|str-index|str-length|sub-string|sym-cat|upcase)\\b"
+        },
+        "list": {
+            "name": "keyword.list",
+            "match": "\\b(complement\\$|create\\$|delete\\$|explode\\$|first\\$|implode\\$|insert\\$|intersection\\$|length\\$|list|member\\$|nth\\$|replace\\$|rest\\$|subseq\\$|union\\$)\\b"
+        },
+        "fact": {
+            "name": "keyword.fact",
+            "match": "\\b(assert|assert-string|dependencies|dependents|duplicate|fact-id|fact-slot-value|facts|load-facts|modify|remove|retract|retract-string|save-facts|save-facts-xml)\\b"
+        },
+        "def": {
+            "name": "keyword.def",
+            "match": "\\b(deffunction|defglobal)\\b"
+        }
+    }
+}
