@@ -125,7 +125,7 @@
         },
         "fact": {
             "name": "keyword.fact",
-            "match": "\\b(assert|assert-string|dependencies|dependents|duplicate|fact-id|fact-slot-value|facts|load-facts|modify|remove|retract|retract-string|save-facts|save-facts-xml)(?![a-zA-Z0-9_-])"
+            "match": "\\b(assert|assert-string|dependencies|dependents|duplicate|fact-id|fact-slot-value|facts|load-facts|modify|remove|retract|retract-string|save-facts|save-facts-xml|slot)(?![a-zA-Z0-9_-])"
         },
         "def": {
             "name": "keyword.def",
