@@ -5,7 +5,8 @@
         {"include": "#string-group"},
         {"include": "#number"},
         {"include": "#constant"},
-        {"include": "#function"}
+        {"include": "#variable-group"},
+        {"include": "#function-group"}
     ],
     "repository": {
         "comment-group": {
@@ -47,7 +48,21 @@
             "name": "constant.language",
             "match": "\\b(TRUE|FALSE|NIL|crlf|t|NUL|SOH|STX|ETX|EOT|ENQ|ACK|BEL|BS|LF|VT|FF|CR|SO|SI|DLE|DC1|DC2|DC3|DC4|NAK|SYN|ETB|CAN|EM|SUB|ESC|FS|GS|RS|US|DEL)\\b"
         },
-        "function": {
+        "variable-group": {
+            "patterns": [
+                {"include": "#variable"},
+                {"include": "#global"}
+            ]
+        },
+        "variable": {
+            "name": "variable",
+            "match": "(?![a-zA-Z0-9_\\*-])(\\?[a-zA-Z0-9_-]*)(?![a-zA-Z0-9_\\*-])"
+        },
+        "global": {
+            "name": "variable.global",
+            "match": "(?![a-zA-Z0-9_\\*-])(\\?\\*[a-zA-Z0-9_-]*\\*)(?![a-zA-Z0-9_\\*-])"
+        },
+        "function-group": {
             "patterns": [
                 {"include": "#misc"},
                 {"include": "#io"},
