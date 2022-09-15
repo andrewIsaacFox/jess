@@ -46,7 +46,7 @@
         },
         "constant": {
             "name": "constant.language",
-            "match": "\\b(TRUE|FALSE|NIL|crlf|t|NUL|SOH|STX|ETX|EOT|ENQ|ACK|BEL|BS|LF|VT|FF|CR|SO|SI|DLE|DC1|DC2|DC3|DC4|NAK|SYN|ETB|CAN|EM|SUB|ESC|FS|GS|RS|US|DEL)\\b"
+            "match": "\\b(TRUE|FALSE|NIL|nil|crlf|t|NUL|SOH|STX|ETX|EOT|ENQ|ACK|BEL|BS|LF|VT|FF|CR|SO|SI|DLE|DC1|DC2|DC3|DC4|NAK|SYN|ETB|CAN|EM|SUB|ESC|FS|GS|RS|US|DEL)\\b"
         },
         "variable-group": {
             "patterns": [
@@ -120,7 +120,7 @@
         },
         "op": {
             "name": "keyword.op",
-            "match": "(?![a-zA-Z0-9_])(\\*|\\*\\*|\\+|\\+\\+|\\-|\\-\\-|/|<|<=|<>|=|>|>=|=>)(?![a-zA-Z0-9_])"
+            "match": "(?![a-zA-Z0-9_])(\\*|\\*\\*|\\+|\\+\\+|\\-|\\-\\-|/|<|<=|<>|=|>|>=|=>|:|&|\\||<-)(?![a-zA-Z0-9_])"
         },
         "math": {
             "name": "keyword.math",
@@ -140,7 +140,7 @@
         },
         "fact": {
             "name": "keyword.fact",
-            "match": "\\b(assert|assert-string|dependencies|dependents|duplicate|fact-id|fact-slot-value|facts|load-facts|modify|remove|retract|retract-string|save-facts|save-facts-xml|slot)(?![a-zA-Z0-9_-])"
+            "match": "\\b(assert|assert-string|dependencies|dependents|duplicate|fact-id|fact-slot-value|facts|load-facts|modify|remove|retract|retract-string|save-facts|save-facts-xml|slot|test)(?![a-zA-Z0-9_-])"
         },
         "def": {
             "name": "keyword.def",
