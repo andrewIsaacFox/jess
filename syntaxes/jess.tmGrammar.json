@@ -144,7 +144,7 @@
         },
         "def": {
             "name": "keyword.def",
-            "match": "\\b(deffunction|defglobal)(?![a-zA-Z0-9_-])"
+            "match": "\\b(deffunction|defglobal|deftemplate|defrule)(?![a-zA-Z0-9_-])"
         }
     }
 }
