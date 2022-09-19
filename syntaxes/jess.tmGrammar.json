@@ -116,7 +116,7 @@
         },
         "rule": {
             "name": "keyword.rule",
-            "match": "\\b(agenda|auto-focus|batch|bload|bsave|build|clear|clear-focus-stack|declare|defadvice|do-backward-chaining|engine|eval|exit|focus|get-current-module|get-focus|get-focus-stack|get-reset-globals|get-salience-evaluation|get-strategy|halt|list-focus-stack|node-index-hash|no-loop|pop-focus|provide|require|require\\*|reset|run|run-until-halt|salience|set-current-module|set-node-index-hash|set-reset-globals|set-salience-evaluation|set-strategy|undefadvice|undeffacts|undefrule)(?![a-zA-Z0-9_-])"
+            "match": "\\b(accumulate|agenda|auto-focus|batch|bload|bsave|build|clear|clear-focus-stack|declare|defadvice|do-backward-chaining|engine|eval|exit|focus|forall|get-current-module|get-focus|get-focus-stack|get-reset-globals|get-salience-evaluation|get-strategy|halt|list-focus-stack|node-index-hash|no-loop|pop-focus|provide|require|require\\*|reset|run|run-until-halt|salience|set-current-module|set-node-index-hash|set-reset-globals|set-salience-evaluation|set-strategy|undefadvice|undeffacts|undefrule)(?![a-zA-Z0-9_-])"
         },
         "op": {
             "name": "keyword.op",
