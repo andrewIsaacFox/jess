@@ -4,7 +4,7 @@
   "description": "A VSCode Extension for Sandia Labs' JESS",
   "icon": "jess-icon.jpeg",
   "repository": {"url": "https://github.com/andrewIsaacFox/jess.git"},
-  "version": "0.0.11",
+  "version": "0.0.12",
   "engines": {
     "vscode": "^1.70.0"
   },
