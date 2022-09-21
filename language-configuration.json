@@ -31,7 +31,11 @@
         {
             "beforeText": ".*/\\*.*",
             "afterText": ".*\\*/.*",
-            "action": {"indent": "indentOutdent"}
+            "action": {"indent": "indentOutdent", "appendText": "** "}
+        },
+        {
+            "beforeText": "^\\*\\* .*",
+            "action": {"indent": "none", "appendText": "** "}
         }
     ]
 }
