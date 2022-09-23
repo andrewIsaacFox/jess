@@ -97,7 +97,7 @@
         },
         "java": {
             "name": "keyword.java",
-            "match": "\\b(add|as-list|call|context|defclass|definstance|get|get-member|implement|import|instanceof|load-function|load-package|new|set|set-member|set-nonvalue-class|set-value-class|synchronized|throw|try|undefinstance|update)(?![a-zA-Z0-9_-])"
+            "match": "\\b(add|as-list|call|catch|context|defclass|definstance|finally|get|get-member|implement|import|instanceof|load-function|load-package|new|set|set-member|set-nonvalue-class|set-value-class|synchronized|throw|try|undefinstance|update)(?![a-zA-Z0-9_-])"
         },
         "logic": {
             "name": "keyword.logic",
