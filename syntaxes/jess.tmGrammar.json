@@ -33,7 +33,7 @@
         },
         "single-string": {
             "name": "string.quoted.double",
-            "match": "(\"\\\\\"\")|(\"(([^\\\\]\\\\\")|[^\"])*\")"
+            "match": "\"(((?<!\\\\)\\\\\")|[^\"])*\""
         },
         "multi-string": {
             "name": "string.quoted.double.multiline",
