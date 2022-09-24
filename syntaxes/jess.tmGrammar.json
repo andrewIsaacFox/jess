@@ -38,7 +38,7 @@
         "multi-string": {
             "name": "string.quoted.double.multiline",
             "begin": "\"",
-            "end": "(?![^\\\\])\""
+            "end": "(?<!\\\\)\""
         },
         "number": {
             "name": "constant.numeric",
@@ -46,7 +46,7 @@
         },
         "constant": {
             "name": "constant.language",
-            "match": "\\b(TRUE|FALSE|NIL|nil|crlf|t|NUL|SOH|STX|ETX|EOT|ENQ|ACK|BEL|BS|LF|VT|FF|CR|SO|SI|DLE|DC1|DC2|DC3|DC4|NAK|SYN|ETB|CAN|EM|SUB|ESC|FS|GS|RS|US|DEL)\\b"
+            "match": "(?<![a-zA-Z0-9_-])(TRUE|FALSE|NIL|nil|crlf|t|NUL|SOH|STX|ETX|EOT|ENQ|ACK|BEL|BS|LF|VT|FF|CR|SO|SI|DLE|DC1|DC2|DC3|DC4|NAK|SYN|ETB|CAN|EM|SUB|ESC|FS|GS|RS|US|DEL|EOF)(?![a-zA-Z0-9_-])"
         },
         "variable-group": {
             "patterns": [
@@ -57,15 +57,15 @@
         },
         "variable": {
             "name": "variable",
-            "match": "(?![a-zA-Z0-9_\\*-])(\\?[a-zA-Z0-9_-]*)(?![a-zA-Z0-9_\\*-])"
+            "match": "(?<![a-zA-Z0-9_\\*-])(\\?[a-zA-Z0-9_-]*)(?![a-zA-Z0-9_\\*-])"
         },
         "global": {
             "name": "variable.global",
-            "match": "(?![a-zA-Z0-9_\\*-])(\\?\\*[a-zA-Z0-9_-]*\\*)(?![a-zA-Z0-9_\\*-])"
+            "match": "(?<![a-zA-Z0-9_\\*-])(\\?\\*[a-zA-Z0-9_-]*\\*)(?![a-zA-Z0-9_\\*-])"
         },
         "backchain": {
             "name": "string.regexp",
-            "match": "\\b(need-[a-zA-Z0-9_-]*)\\b"
+            "match": "(?<![a-zA-Z0-9_-])(need-[a-zA-Z0-9_-]*)(?![a-zA-Z0-9_-])"
         },
         "function-group": {
             "patterns": [
@@ -89,67 +89,67 @@
         },
         "misc": {
             "name": "keyword.misc",
-            "match": "\\b(bag|bind|clear-storage|fetch|gensym\\*|help|jess-version-number|jess-version-string|set-factory|setgen|store|system|time)(?![a-zA-Z0-9_-])"
+            "match": "(?<![a-zA-Z0-9_-])(bag|bind|clear-storage|fetch|gensym\\*|help|jess-version-number|jess-version-string|set-factory|setgen|store|system|time)(?![a-zA-Z0-9_-])"
         },
         "io": {
             "name": "keyword.io",
-            "match": "\\b(close|format|get-multithread-io|open|printout|read|readline|set-multithread-io|socket)(?![a-zA-Z0-9_-])"
+            "match": "(?<![a-zA-Z0-9_-])(close|format|get-multithread-io|open|printout|read|readline|set-multithread-io|socket)(?![a-zA-Z0-9_-])"
         },
         "java": {
             "name": "keyword.java",
-            "match": "\\b(add|as-list|call|catch|context|defclass|definstance|finally|get|get-member|implement|import|instanceof|load-function|load-package|new|set|set-member|set-nonvalue-class|set-value-class|synchronized|throw|try|undefinstance|update)(?![a-zA-Z0-9_-])"
+            "match": "(?<![a-zA-Z0-9_-])(add|as-list|call|catch|context|defclass|definstance|finally|get|get-member|implement|import|instanceof|load-function|load-package|new|set|set-member|set-nonvalue-class|set-value-class|synchronized|throw|try|undefinstance|update)(?![a-zA-Z0-9_-])"
         },
         "logic": {
             "name": "keyword.logic",
-            "match": "\\b(and|bit-and|bit-not|bit-or|not|or)(?![a-zA-Z0-9_-])"
+            "match": "(?<![a-zA-Z0-9_-])(and|bit-and|bit-not|bit-or|not|or)(?![a-zA-Z0-9_-])"
         },
         "debug": {
             "name": "keyword.debug",
-            "match": "\\b(jess-type|list-function\\$|matches|set-watch-router|show-jess-listeners|unwatch|view|watch)(?![a-zA-Z0-9_-])"
+            "match": "(?<![a-zA-Z0-9_-])(jess-type|list-function\\$|matches|set-watch-router|show-jess-listeners|unwatch|view|watch)(?![a-zA-Z0-9_-])"
         },
         "query": {
             "name": "keyword.query",
-            "match": "\\b(count-query-results|run-query|run-query\\*)(?![a-zA-Z0-9_-])"
+            "match": "(?<![a-zA-Z0-9_-])(count-query-results|run-query|run-query\\*)(?![a-zA-Z0-9_-])"
         },
         "control": {
             "name": "keyword.structure",
-            "match": "\\b(apply|break|call-on-engine|continue|else|filter|for|foreach|if|lambda|map|progn|return|then|while)(?![a-zA-Z0-9_-])"
+            "match": "(?<![a-zA-Z0-9_-])(apply|break|call-on-engine|continue|else|filter|for|foreach|if|lambda|map|progn|return|then|while)(?![a-zA-Z0-9_-])"
         },
         "pprint": {
             "name": "keyword.pprint",
-            "match": "\\b(list-deftemplates|ppdeffacts|ppdeffunction|ppdefglobal|ppdefquery|ppdefrule|ppdeftemplate|rules|show-deffacts|show-deftemplates)(?![a-zA-Z0-9_-])"
+            "match": "(?<![a-zA-Z0-9_-])(list-deftemplates|ppdeffacts|ppdeffunction|ppdefglobal|ppdefquery|ppdefrule|ppdeftemplate|rules|show-deffacts|show-deftemplates)(?![a-zA-Z0-9_-])"
         },
         "rule": {
             "name": "keyword.rule",
-            "match": "\\b(accumulate|agenda|auto-focus|batch|bload|bsave|build|clear|clear-focus-stack|declare|defadvice|do-backward-chaining|engine|eval|exit|focus|forall|get-current-module|get-focus|get-focus-stack|get-reset-globals|get-salience-evaluation|get-strategy|halt|list-focus-stack|node-index-hash|no-loop|pop-focus|provide|require|require\\*|reset|run|run-until-halt|salience|set-current-module|set-node-index-hash|set-reset-globals|set-salience-evaluation|set-strategy|undefadvice|undeffacts|undefrule)(?![a-zA-Z0-9_-])"
+            "match": "(?<![a-zA-Z0-9_-])(accumulate|agenda|auto-focus|batch|bload|bsave|build|clear|clear-focus-stack|declare|defadvice|do-backward-chaining|engine|eval|exit|focus|forall|get-current-module|get-focus|get-focus-stack|get-reset-globals|get-salience-evaluation|get-strategy|halt|list-focus-stack|node-index-hash|no-loop|pop-focus|provide|require|require\\*|reset|run|run-until-halt|salience|set-current-module|set-node-index-hash|set-reset-globals|set-salience-evaluation|set-strategy|undefadvice|undeffacts|undefrule)(?![a-zA-Z0-9_-])"
         },
         "op": {
             "name": "keyword.op",
-            "match": "(?![a-zA-Z0-9_])(\\*|\\*\\*|\\+|\\+\\+|\\-|\\-\\-|/|<|<=|<>|=|>|>=|=>|:|&|~|\\||<-)(?![a-zA-Z0-9_])"
+            "match": "(?<![a-zA-Z0-9_-])(\\*|\\*\\*|\\+|\\+\\+|\\-|\\-\\-|/|<|<=|<>|=|>|>=|=>|:|&|~|\\||<-)(?![a-zA-Z0-9_])"
         },
         "math": {
             "name": "keyword.math",
-            "match": "\\b(abs|div|e|eq|eq\\*|exp|float|integer|log|log10|long|max|min|mod|neq|pi|random|round|sqrt)(?![a-zA-Z0-9_-])"
+            "match": "(?<![a-zA-Z0-9_-])(abs|div|e|eq|eq\\*|exp|float|integer|log|log10|long|max|min|mod|neq|pi|random|round|sqrt)(?![a-zA-Z0-9_-])"
         },
         "type": {
             "name": "keyword.type",
-            "match": "\\b(evenp|external-addressp|floatp|integerp|java-objectp|lexemep|listp|longp|multifieldp|numberp|oddp|stringp|subsetp|symbolp)(?![a-zA-Z0-9_-])"
+            "match": "(?<![a-zA-Z0-9_-])(evenp|external-addressp|floatp|integerp|java-objectp|lexemep|listp|longp|multifieldp|numberp|oddp|stringp|subsetp|symbolp)(?![a-zA-Z0-9_-])"
         },
         "string": {
             "name": "keyword.string",
-            "match": "\\b(asc|lowcase|regexp|str-cat|str-compare|str-index|str-length|sub-string|sym-cat|upcase)(?![a-zA-Z0-9_-])"
+            "match": "(?<![a-zA-Z0-9_-])(asc|lowcase|regexp|str-cat|str-compare|str-index|str-length|sub-string|sym-cat|upcase)(?![a-zA-Z0-9_-])"
         },
         "list": {
             "name": "keyword.list",
-            "match": "\\b(complement\\$|create\\$|delete\\$|explode\\$|first\\$|implode\\$|insert\\$|intersection\\$|length\\$|list|member\\$|nth\\$|replace\\$|rest\\$|subseq\\$|union\\$)(?![a-zA-Z0-9_-])"
+            "match": "(?<![a-zA-Z0-9_-])(complement\\$|create\\$|delete\\$|explode\\$|first\\$|implode\\$|insert\\$|intersection\\$|length\\$|list|member\\$|nth\\$|replace\\$|rest\\$|subseq\\$|union\\$)(?![a-zA-Z0-9_-])"
         },
         "fact": {
             "name": "keyword.fact",
-            "match": "\\b(assert|assert-string|dependencies|dependents|duplicate|fact-id|fact-slot-value|facts|load-facts|modify|remove|retract|retract-string|save-facts|save-facts-xml|slot|test)(?![a-zA-Z0-9_-])"
+            "match": "(?<![a-zA-Z0-9_-])(assert|assert-string|dependencies|dependents|duplicate|fact-id|fact-slot-value|facts|load-facts|modify|remove|retract|retract-string|save-facts|save-facts-xml|slot|test)(?![a-zA-Z0-9_-])"
         },
         "def": {
             "name": "keyword.def",
-            "match": "\\b(deffunction|defglobal|deftemplate|defrule)(?![a-zA-Z0-9_-])"
+            "match": "(?<![a-zA-Z0-9_-])(deffunction|defglobal|deftemplate|defrule)(?![a-zA-Z0-9_-])"
         }
     }
 }
