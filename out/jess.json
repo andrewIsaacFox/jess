@@ -1,0 +1,1169 @@
+{
+    "-": {
+        "title": "(- <numeric-expression> <numeric-expression>+)",
+        "arguments": "Two or more numeric expressions",
+        "returns": "Number",
+        "description": "Returns the first argument minus all subsequent arguments. The return value is an `INTEGER` or `LONG` unless any of the arguments are `FLOAT`, in which case it is a `FLOAT`."
+    },
+    "--": {
+        "title": "(-- <variable>)",
+        "arguments": "A variable",
+        "returns": "Number",
+        "descrption": "Subtracts one from the variable (which should contain a numeric value,) sets the variable to the new value, and returns the new value. Throws an exception if the argument is not a variable containing a numeric type. The type of the variable is preserved."
+    },
+    "/": {
+        "title": "(/ <numeric-expression> <numeric-expression>+)",
+        "arguments": "Two or more numeric expressions",
+        "returns": "Number",
+        "description": "Returns the first argument divided by all subsequent arguments. The return value is a `FLOAT`."
+    },
+    "*": {
+        "title": "(* <numeric-expression> <numeric-expression>+)",
+        "arguments": "Two or more numeric expressions",
+        "returns": "Number",
+        "description": "Returns the products of its arguments. The return value is an `INTEGER` or `LONG` unless any of the arguments are `FLOAT`, in which case it is a `FLOAT`."
+    },
+    "**": {
+        "title": "(** <numeric-expression> <numeric-expression>)",
+        "arguments": "Two numeric expressions",
+        "returns": "Number",
+        "description": "Raises its first argument to the power of its second argument (using Java's `Math.pow()` function). ***Note*:** the return value is `NaN` (not a number) if both arguments are negative."
+    },
+    "+": {
+        "title": "(+ <numeric-expression> <numeric-expression>+)",
+        "arguments": "Two or more numeric expressions",
+        "returns": "Number",
+        "description": "Returns the sum of its arguments. The return value is an `INTEGER` or `LONG` unless any of the arguments are `FLOAT`, in which case it is a `FLOAT`."
+    },
+    "++": {
+        "title": "(++ <variable>)",
+        "arguments": "A variable",
+        "returns": "Number",
+        "description": "Adds one to the variable (which should contain a numeric value,) sets the variable to the new value, and returns the new value. Throws an exception if the argument is not a variable containing a numeric type. The type of the variable is preserved."
+    },
+    "<": {
+        "title": "(< <numeric-expression> <numeric-expression>+)",
+        "arguments": "Two or more numeric expressions or `Comparable` objects",
+        "returns": "Boolean",
+        "description": "Returns `TRUE` if each argument is less than the argument following it; otherwise, returns `FALSE`. The definition of \"less than\" varies depending on the types being compared."
+    },
+    "<=": {
+        "title": "(<= <numeric-expression> <numeric-expression>+)",
+        "arguments": "Two or more numeric expressions or `Comparable` objects",
+        "returns": "Boolean",
+        "description": "Returns `TRUE` if the value of each argument is less than or equal to the value of the argument following it; otherwise, returns `FALSE`. The definition of \"less than or equal to\" depends on the objects being compared."
+    },
+    "<>": {
+        "title": "(<> <numeric-expression> <numeric-expression>+)",
+        "arguments": "Two or more numeric expressions or `Comparable` objects",
+        "returns": "Boolean",
+        "description": "Returns `TRUE` if the value of the first argument is not equal in value to all subsequent arguments; otherwise returns `FALSE`. The definition of \"not equal\" depends on the objects being compared."
+    },
+    "=": {
+        "title": "(= <numeric-expression> <numeric-expression>+)",
+        "arguments": "Two or more numeric expressions or `Comparable` objects",
+        "returns": "Boolean",
+        "description": "Returns `TRUE` if the value of the first argument is equal in value to all subsequent arguments; otherwise, returns `FALSE`. The integer 2 and the float 2.0 are `=`, but not `eq`."
+    },
+    ">": {
+        "title": "(> <numeric-expression> <numeric-expression>+)",
+        "arguments": "Two or more numeric expressions or `Comparable` objects",
+        "returns": "Boolean",
+        "description": "Returns `TRUE` if the value of each argument is greater than that of the argument following it; otherwise, returns `FALSE`. The definition of \"greater than\" depends on the objects being compared"
+    },
+    ">=": {
+        "title": "(>= <numeric-expression> <numeric-expression>+)",
+        "arguments": "Two or more numeric expressions or Comparable objects",
+        "returns": "Boolean",
+        "description": "Returns `TRUE` if the value of each argument is greater than or equal to that of the argument following it; otherwise, returns `FALSE`. The definition of \"greater than or equal to\" depends on the objects being compared."
+    },
+    "abs": {
+        "title": "(abs <numeric-expression>)",
+        "arguments": "One numeric expression",
+        "returns": "Number",
+        "description": "Returns the absolute value of its only argument."
+    },
+    "add": {
+        "title": "(add <Java object>)",
+        "arguments": "A Java object",
+        "description": "Adds the given object to working memory. Creates a \"shadow fact\" representing the given Java object, using the template whose name is the same as the given object's class, without the package prefix. If this template doesn't exist, it is created. Equivalent to calling \n\n ``` \n (definstance <classname> <Java object> static) \n ``` \n\n See the description of the `definstance` function for more information."
+    },
+    "agenda": {
+        "title": "(agenda [<string>])",
+        "arguments": "Optionally, a module name or the symbol \"*\"",
+        "description": "Displays a list of rule activations to the `WSTDOUT` router. If no argument is specified, the activations in the current module (not the focus module) are displayed. If a module name is specified, only the activations in that module are displayed. If \"*\" is specified, then all activations are displayed."
+    },
+    "and": {
+        "title": "(and <expression>+)",
+        "arguments": "One or more expressions",
+        "returns": "Boolean",
+        "description": "Returns `TRUE` if all arguments evaluate to a non-`FALSE` value; otherwise, returns `FALSE`."
+    },
+    "apply": {
+        "title": "(apply <expression>+)",
+        "arguments": "A function name and zero or more expressions",
+        "returns": "An expression",
+        "description": "Returns the result of calling the first argument, as a Jess function, on all the remaining arguments. The strength of this method lies in the fact that you can call a function whose name, for instance, is in a Jess variable."
+    },
+    "asc": {
+        "title": "(asc <string>)",
+        "arguments": "Any string or symbol",
+        "returns": "Integer",
+        "description": "Returns the Unicode value of the first character of the argument, as an `RU.INTEGER`."
+    },
+    "assert": {
+        "title": "(assert <fact>+)",
+        "arguments": "One or more facts",
+        "returns": "A Fact, or FALSE",
+        "description": "Adds all the facts to the working memory; returns the last fact asserted or `FALSE` if no facts were successfully asserted (for example, if all facts given are duplicates of existing facts.) A `jess.JessEvent` of type `JessEvent.FACT` will be sent if the event mask is set appropriately. \n\n It is important to remember that all pattern-matching happens during calls to `assert`, `retract`, `modify`, and related functions. Pattern-matching happens whether the engine is running or not. \n\n Example: \n\n ``` \n (reset) \n -> TRUE \n (assert (testing 1 2 3)) \n -> <Fact-1> \n ```"
+    },
+    "assert-string": {
+        "title": "(assert-string <string-expression>)",
+        "arguments": "One string representing a fact",
+        "returns": "A Fact, or FALSE",
+        "description": "Converts a string into a fact and asserts it. Attempts to parse string as a fact, and if successful, returns the value returned by assert with the same fact. Note that the string must contain the fact's enclosing parentheses. \n\n Example: \n\n ``` \n (reset) \n -> TRUE \n (assert-string \"(testing 1 2 3)\") \n -> <Fact-1> \n ```"
+    },
+    "bag": {
+        "title": "(bag <bag-command> <bag-arguments>+)",
+        "arguments": "A symbol (a sub-command) and one or more additional arguments",
+        "returns": "Varies",
+        "description": "The `bag` command lets you manipulate Java hashtables from Jess. The net result is that you can create any number of associative arrays or property lists. Each such array or list has a name by which it can be looked up. The lists can contain other lists as properties, or any other Jess data type. \n\n The `bag` command does different things based on its first argument. It's really seven commands in one: \n\n - `create` accepts a String, the name of a new Bag to be created. The bag object itself is returned. For example: \n\n ``` \n (bag create my-bag) \n ``` \n\n - `delete` accepts the name of an existing bag, and deletes it from the list of bags. \n\n - `find` accepts the name of a bag, and returns the corresponding bag object, if one exists, or `nil`. \n\n - `list` returns a list of the names of all the existing bags. \n\n - `set` accepts as arguments a bag, a String property name, and any Jess value as its three arguments. The named property of the given bag is set to the value, and the value is returned. \n\n - `get` accepts as arguments a bag and a String property name. The named property is retrieved and returned, or `nil` if there is no such property. For example: \n\n ``` \n (defglobal ?*bag* = 0) \n -> TRUE \n (bind ?*bag* (bag create my-bag)) \n -> <Java-Object:java.util.Hashtable> \n (bag set ?*bag* my-prop 3.0) \n -> 3.0 \n (bag get ?*bag* my-prop) \n -> 3.0 \n ``` \n\n - `props` accepts a bag as the single argument and returns a list of the names of all the properties of that bag."
+    },
+    "batch": {
+        "title": "(batch <filename>)",
+        "arguments": "One string representing the name of a file",
+        "returns": "Varies",
+        "description": "Attempts to parse and evaluate the given file as Jess code. If successful, returns the return value of the last expression in the file. \n\n ***Note*:** the argument must follow Jess' rules for valid strings. On UNIX systems, this presents no particular problems, but Win32 filenames may need special treatment. In particular: pathnames should use either '\\\\' (double backslash) or '/' (forward slash) instead of '\\' (single backslash) as directory separators. \n\n In an applet, batch will try to find the file relative to the applet's document base. In any program, if the file is not found, the name is then passed to `ClassLoader.getSystemResourceAsStream()`. This allows files along the class path, including files in JARs, to be batched."
+    },
+    "bind": {
+        "title": "(bind <variable> <expression>*)",
+        "arguments": "A variable name and any value",
+        "returns": "Varies",
+        "description": "Binds a variable to a new value. Assigns the given value to the given variable, creating the variable if necessary. Returns the given value. \n\n Example: \n\n ``` \n (bind ?x 3) \n -> 3 \n ?x \n -> 3 \n ```"
+    },
+    "bit-and": {
+        "title": "(bit-and <integer-expression>+)",
+        "arguments": "One or more integer expressions",
+        "returns": "int",
+        "description": "Performs the bitwise AND of the arguments. `(bit-and 7 4)` is 4, and is equivalent to the Java `7 & 4`."
+    },
+    "bit-not": {
+        "title": "(bit-not <integer-expression>)",
+        "arguments": "One integer expression",
+        "returns": "int",
+        "description": "Performs the bitwise NOT of the argument. `(bit-not 0)` is -1, and is equivalent to the Java `~0`."
+    },
+    "bit-or": {
+        "title": "(bit-or <integer-expression>+)",
+        "arguments": "One or more integer expressions",
+        "returns": "int",
+        "description": "Performs the bitwise OR of the arguments. `(bit-or 2 4)` is 6, and is equivalent to the Java `2 | 4`."
+    },
+    "bload": {
+        "title": "(bload <filename>)",
+        "arguments": "One string representing the name of a file",
+        "returns": "TRUE",
+        "description": "The argument is the path to a file previously produced by the `bsave` command. The file is decompressed and deserialized to restore the state of the current Rete object. I/O routers are not restored from the file; they retain their previous state. Furthermore, JessListeners are not restored from the file; again, they are retained from their state prior to the bload."
+    },
+    "bsave": {
+        "title": "(bsave <filename>)",
+        "arguments": "One string representing the name of a file",
+        "returns": "TRUE",
+        "description": "Dumps the engine in which it is called to the given filename argument in a format that can be read using `bload`. Any input/output streams and event listeners are not saved during the serialization process."
+    },
+    "build": {
+        "title": "(build <string-expression>)",
+        "arguments": "One string representing some Jess code",
+        "returns": "Varies",
+        "description": "Evaluates a string as though it were entered at the command prompt. Only allows constructs to be evaluated. Attempts to parse and evaluate the given string as Jess code. If successful, returns the return value of the last expression in the string. This is typically used to define rules from Jess code. For instance: \n\n ``` \n (build \"(defrule foo (foo) => (bar))\") \n ``` \n\n Note: The string must consist of one single construct; multiple constructs can be built using multiple calls to `build`."
+    },
+    "call": {
+        "title": "(call <Java object> | <string expression>)",
+        "arguments": "A java object or class name, a method name, and any number of additional arguments",
+        "returns": "Varies",
+        "description": "Calls a Java method on the given object, or a static method of the class named by the first argument. The second argument is the name of the method, and subsequent arguments are passed to the method. Arguments are promoted and overloaded methods selected precisely as for `new`. The return value is converted to a suitable Jess value before being returned. Array return values are converted to lists. \n\n The functor `call` may be omitted if the method being called is non-static. The following two method calls are equivalent: \n\n ``` \n ;; These are legal and equivalent \n (call ?vector addElement (new java.lang.String \"Foo\")) \n (?vector addElement (new java.lang.String \"Foo\")) \n ``` \n\n Note that `call` even be omitted if the object comes from the return value of another function call: \n\n ``` \n ;; This is legal \n ((new java.util.Vector 10) addElement (new String \"Foo\")) \n ```"
+    },
+    "call-on-engine": {
+        "title": "(call-on-engine <Java object> <jess-code>)",
+        "arguments": "an `jess.Rete` object, and an executable snippet of Jess code",
+        "returns": "Varies",
+        "description": "Executes some Jess code in the context of the given Rete object. This is a nice way to send messages between multiple Rete engines in one process. Note that the current variable context is used to evaluate the code, so (for instance) all defglobal values will be from the calling engine, not the target."
+    },
+    "clear": {
+        "title": "(clear)",
+        "returns": "TRUE",
+        "description": "Clears Jess. Deletes all rules, deffacts, defglobals, templates, facts, activations, and so forth. Java Userfunctions are not deleted."
+    },
+    "clear-focus-stack": {
+        "title": "(clear-focus-stack)",
+        "description": "Removes all modules from the focus stack."
+    },
+    "clear-storage": {
+        "title": "(clear-storage)",
+        "returns": "TRUE",
+        "description": "Clears the hashtable used by `store` and `fetch`."
+    },
+    "close": {
+        "title": "(close [<router-identifier>])",
+        "arguments": "One or more router identifiers (symbols)",
+        "returns": "TRUE",
+        "description": "Closes any I/O routers associated with the given name by calling `close()` on the underlying stream, then removes the routers. Any subsequent attempt to use a closed router will report `bad router`. See `open`."
+    },
+    "complement$": {
+        "title": "(complement$ <list-expression> <list-expression>)",
+        "arguments": "Two lists",
+        "returns": "List",
+        "description": "Returns a new list consisting of all elements of the second list not appearing in the first list."
+    },
+    "context": {
+        "title": "(context)",
+        "returns": "A `jess.Context` object",
+        "description": "Returns the execution context (a `jess.Context` object) it is called in. This provides a way for deffunctions to get a handle to this useful class."
+    },
+    "count-query-results": {
+        "title": "(count-query-results <query-name> <expression>+)",
+        "arguments": "A query name, and zero or more additional expressions",
+        "returns": "int",
+        "description": "Runs a `query` and returns a count of the matches. See the documentation for `defquery` for more details. Also see `run-query` for caveats concerning calling count-query-results on a rule RHS."
+    },
+    "create$": {
+        "title": "(<expression>*)",
+        "arguments": "Zero or more expressions",
+        "returns": "List",
+        "description": "Appends its arguments together to create a list value. Returns a new list containing all the given arguments, in order. For each argument that is a list, the individual elements of the list are added to the new list; this function will not create nested lists (which are not meaningful in the Jess language.) ***Note*:** lists must be created explicitly using this function or others that return them. Lists cannot be directly parsed from Jess input."
+    },
+    "defadvice": {
+        "title": "(defadvice (before | after) (<function-name> | <list>) <function-call>+)",
+        "arguments": "The symbol `before` or the symbol `after`, followed by either one function name or a list of function names or the symbol `ALL`, followed by one or more function calls.",
+        "returns": "Varies",
+        "description": "Lets you supply extra code to run before or after the named function(s) or all functions. If `before` is specified, the code will execute before the named function(s); the variable $?argv will hold the entire function call vector (function name and parameters) on entry to and exit from the code block. If `after` is specified, the function will be called before the code block is entered. When the block is entered, the variable ?retval will refer to the original function's return value. \n\n Whether `before` or `after` is specified, if the code block explicitly calls `return` with a value, the returned value will appear to the caller to be the return value of the original function. For `before` advice, this means the original function will not be called in this case."
+    },
+    "defclass": {
+        "title": "(defclass <tag> <Java class name> [extends <tag>])",
+        "arguments": "Two or four symbols, as noted above",
+        "returns": "The second argument",
+        "description": "Defines a template with the given tag, with slots based on the Java Beans properties found in the named class. If the optional extends clause is included, the second tag will become the parent template of the new template. The common slots in the two templates will be in the same order, at the beginning of the new template. Rules defined to match instances of the parent template will also match instances of the new child template. \n\n Note that anything you can do using the defclass function, you can also do with the `deftemplate` construct -- but deftemplate lets you do even more."
+    },
+    "definstance": {
+        "title": "(definstance <tag> <Java object> [static | dynamic])",
+        "arguments": "A symbol, a Java object, and (optionally) one of the symbols `static`, `dynamic`, or `auto`",
+        "returns": "The new shadow fact",
+        "description": "Creates a \"shadow fact\" representing the given Java object, according to the named template (which should have come from `defclass`.) By default, or if the \"dynamic\" qualifier is specified, and if the object accepts `java.beans.PropertyChangeListener`s, then Jess will install a listener in the given object, so that Jess can keep the shadow fact updated if the object's properties change. If the object doesn't accept `PropertyChangeListener`s, or if the \"static\" qualifier is specified, then no listener will be registered and the shadow fact will not be upated when the object changes. The \"auto\" qualifier is equivalent to the default behavior. \n\n Note that it is an error for a given Java object to be installed in more than one `definstance` at a time. The second and subsequent `definstance` calls for a given object will return a fact-id with value -1."
+    },
+    "delete$": {
+        "title": "(delete$ <list-expression> <begin-integer-expression> <end-integer-expression>)",
+        "arguments": "A list and two integer expressions",
+        "returns": "List",
+        "description": "Returns a new list like the original list but with the elements in the specified range removed. The first numeric expression is the 1-based index of the first element to remove; the second is the 1-based index of the last element to remove."
+    },
+    "dependencies": {
+        "title": "(dependencies <fact-id>)",
+        "arguments": "A Fact",
+        "returns": "List",
+        "description": "Returns a list containing all the `jess.Token` objects that give logical support from the argument fact; if there are none this function returns an empty list. A `jess.Token` object is a list of facts; they're the same objects returned by `run-query`."
+    },
+    "dependents": {
+        "title": "(dependents <fact-id>)",
+        "arguments": "A Fact or fact-id",
+        "returns": "List",
+        "description": "Returns a list containing all the `jess.Fact` objects that get logical support from the argument fact; if there are none this function returns an empty list."
+    },
+    "div": {
+        "title": "(div <numeric-expression> <numeric-expression>+)",
+        "arguments": "Two or more numeric expressions",
+        "returns": "int",
+        "description": "Returns the first argument divided by all subsequent arguments using integer division."
+    },
+    "do-backward-chaining": {
+        "title": "(do-backward-chaining <deftemplate-tag>)",
+        "arguments": "Name of a template (ordered or unordered)",
+        "returns": "TRUE",
+        "description": "Marks a template as being eligible for backwards chaining, as described in the text. If the template is unordered -- i.e., if it is explicitly defined with a (deftemplate) construct -- then it must be defined *before* calling `do-backward-chaining`. In addition, this function must be called *before* defining any rules which use the template."
+    },
+    "duplicate": {
+        "title": "(duplicate <fact-specifier> (<slot-name> <value>)+)",
+        "arguments": "A fact and one or more two-element lists",
+        "returns": "A fact",
+        "description": "Makes a copy of the fact; the fact must be an unordered fact. Each list is taken as the name of a slot in this fact and a new value to assign to the slot. A new fact is asserted which is similar to the given fact but which has the specified slots replaced with new values. The new fact is returned. It is an error to call `duplicate` on a definstance. \n\n As of Jess version 7, the slot names can be variables."
+    },
+    "e": {
+        "title": "(e)",
+        "returns": "float",
+        "description": "Returns the transcendental number *e*."
+    },
+    "engine": {
+        "title": "(engine)",
+        "returns": "A `jess.Rete` object",
+        "description": "Returns the `jess.Rete` object in which the function is called."
+    },
+    "eq": {
+        "title": "(eq <expression> <expression>+)",
+        "arguments": "Two or more arbitrary arguments",
+        "returns": "Boolean",
+        "description": "Returns `TRUE` if the first argument is equal in type and value to all subsequent arguments. For strings, this means identical contents. Uses the Java `Object.equals()` function, so can be redefined. Note that the integer `2` and the floating-point number `2.0` are *not* `eq`, but they are `eq*` and `=`. \n\n While often used in procedural code, this function is only rarely used during pattern matching. Direct matching is preferable."
+    },
+    "eq*": {
+        "title": "(eq* <expression> <expression>+)",
+        "arguments": "Two or more arbitrary arguments",
+        "returns": "Boolean",
+        "description": "Returns `TRUE` if the first argument is equivalent to all the others. Uses numeric equality for numeric types, unlike `eq`. Note that the integer 2 and the floating-point number 2.0 are *not* `eq`, but they are `eq*` and `=`."
+    },
+    "eval": {
+        "title": "(eval <lexeme-expression>)",
+        "arguments": "One string containing a valid Jess expression",
+        "returns": "Varies",
+        "description": "Evaluates a string as though it were entered at a command prompt. Only allows functions to be evaluated. Evaluates the string as if entered at the command line and returns the result. \n\n ***Note*:** The string must consist of one single function call; multiple calls can be evaluated using multiple calls to eval."
+    },
+    "evenp": {
+        "title": "(evenp <expression>)",
+        "arguments": "One numeric expression",
+        "returns": "Boolean",
+        "description": "Returns `TRUE` for even numbers; otherwise, returns `FALSE`. Results with non-integers may be unpredictable."
+    },
+    "exit": {
+        "title": "(exit)",
+        "description": "Exits Jess and halts Java."
+    },
+    "exp": {
+        "title": "(exp <numeric-expression>)",
+        "arguments": "One numeric expression",
+        "returns": "Number",
+        "description": "Raises the value *e* to the power of its only argument."
+    },
+    "explode$": {
+        "title": "(explode$ <string-expression>)",
+        "arguments": "One string",
+        "returns": "List",
+        "description": "Creates a list value from a string. Parses the string as if by a succession of `read` calls, then returns these individual values as the elements of a list. \n\n ***Note*:** `explode$` splits the string on spaces, not on each character. \n\n ***Note*:** `explode$` ignores semicolons and everything following them inside the string"
+    },
+    "external-addressp": {
+        "title": "(external-addressp <expression>)",
+        "arguments": "One expression",
+        "returns": "Boolean",
+        "description": "**Deprecated.** Use `java-objectp` instead."
+    },
+    "fact-id": {
+        "title": "(fact-id <integer>)",
+        "arguments": "One number, a fact-id",
+        "returns": "The given number as a `jess.Fact`",
+        "description": "If the argument is the fact-id of an existing fact, returns that `jess.Fact` object; otherwise throws an exception. The lookup done by this function is *slow*. Be sure you really need to call this function. If you have a value that prints as \"<Fact-1>\", then it's already a Fact object."
+    },
+    "facts": {
+        "title": "(facts)",
+        "returns": "TRUE",
+        "description": "Prints a list of all facts in working memory."
+    },
+    "fact-slot-value": {
+        "title": "(fact-slot-value <fact-id> <slot-name>)",
+        "arguments": "A `jess.Fact` and a slot name",
+        "returns": "Varies",
+        "description": "Returns the value in the named slot of the fact. You should *never* need to call this on the left hand side of a rule; direct matching is always better. You should only occasionally need it in other code; again, directly matching the slots on the left hand side of a rule is better."
+    },
+    "fetch": {
+        "title": "(fetch <string or symbol>)",
+        "arguments": "One string or symbol",
+        "returns": "Varies",
+        "description": "Retrieves and returns any value previously stored by the `store` function under the given name, or `nil` if there is none. Analogous to the `fetch()` member function of the `Rete` class. See the section on [using store and fetch](http://alvarestech.com/temp/fuzzyjess/Jess60/Jess70b7/docs/java.html#xfer) for details."
+    },
+    "filter": {
+        "title": "(filter <predicate function> <list>)",
+        "arguments": "A function and a list",
+        "returns": "List",
+        "description": "Calls the function on each item in the list; returns a list of all the results for which the function does not return `FALSE`. The function can either be the name of a Userfunction, or it can be a `lambda` expression."
+    },
+    "first$": {
+        "title": "(filter$ <list-expression>)",
+        "arguments": "One list",
+        "returns": "List",
+        "description": "Returns the first field of a list as a new 1-element list."
+    },
+    "float": {
+        "title": "(float <numeric-expression>)",
+        "arguments": "One numeric expression",
+        "returns": "float",
+        "description": "Converts its only argument to a float."
+    },
+    "floatp": {
+        "title": "(floatp <expression>)",
+        "arguments": "One numeric expression",
+        "returns": "Boolean",
+        "description": "Returns `TRUE` for floats; otherwise, returns `FALSE`."
+    },
+    "focus": {
+        "title": "(focus <module-name>+)",
+        "arguments": "One or more symbols, the names of modules",
+        "returns": "The name of the previous focus module",
+        "description": "Changes the focus module. The next time the engine runs, the first rule to fire will be from the first module listed (if any rules are activated in this module.) The previously active module is pushed down on the focus stack. If more than one module is listed, they are pushed onto the focus stack in order from right to left."
+    },
+    "for": {
+        "title": "(for <initializer> <condition> <increment> <action>*)",
+        "arguments": "Three or more expressions",
+        "returns": "Varies",
+        "description": "Jess's `for` function works just like Java's `for` loop. First the initializer is evaluated. Then the condition is evaluated. If it does not evaluate to `FALSE`, the body expressions are evaluated in order. Next, the increment is evaluated, and then the condition is checked again. The loop continues until the condition evaluates to `FALSE` or until a `return` is encountered. \n\n Example: \n\n ``` \n (for (bind ?i 0) (< ?i 10) (++ ?i) \n &emsp; (printout t ?i crlf)) \n ``` \n\n In Java, the initializer, condition, or increment can be empty. In Jess, you can use the constant `nil` as an equivalent."
+    },
+    "foreach": {
+        "title": "(foreach <variable> <list-expression> <action>*)",
+        "arguments": "A variable, a list expression or iterator, and zero or more arguments",
+        "returns": "Varies",
+        "description": "The named variable is set to each of a series of values, in turn. For each value, all of the other arguments are evaluated in order. The `return` function can be used to break the iteration. \n\n Example: \n\n ``` \n (foreach ?x (create$ a b c d) (printout t ?x crlf)) \n ``` \n\n There are two ways to specify the series of values: you can either specify a Jess list (as created by `create$`) or you can provide a `java.util.Iterator`."
+    },
+    "format": {
+        "title": "(format <router-identifier> <string-expression> <expression>*)",
+        "arguments": "A router identifier, a format string, and zero or more arguments",
+        "returns": "String",
+        "description": "Sends formatted output to the specified logical name. Formats the arguments into a string according to the format string, which is identical to that used by `printf` in the C language (find a C book for more information). Returns the string, and optionally prints the string to the named router. If you pass `nil` for the router name, no printing is done."
+    },
+    "gensym*": {
+        "title": "(gensym*)",
+        "returns": "Symbol",
+        "description": "Returns a special unique sequenced value. Returns a unique symbol which consists of the letters `gen` plus an integer. Use `setgen` to set the value of the integer to be used by the next gensym call."
+    },
+    "get": {
+        "title": "(get <Java object> <string-expression>)",
+        "arguments": "A Java object and a string.",
+        "returns": "Varies",
+        "description": "Retrieves the value of a JavaBean's property. The first argument is the JavaBean and the second argument is the name of the property. The return value is converted to a suitable Jess value exactly as for `call`."
+    },
+    "get-current-module": {
+        "title": "(get-current-module)",
+        "returns": "The name of the current module",
+        "description": "Gets the current module (see `set-current-module`)."
+    },
+    "get-focus": {
+        "title": "(get-focus)",
+        "returns": "Symbol",
+        "description": "Returns the name of the current focus module (see `focus`)."
+    },
+    "get-focus-stack": {
+        "title": "(get-focus-stack)",
+        "returns": "List",
+        "description": "Returns the module names on the focus stack as a list. The top module on the stack is the first entry in the list."
+    },
+    "get-member": {
+        "title": "(get-member (<Java object> | <string-expression>) <string-expression>)",
+        "arguments": "A Java object or a string, and a member variable name.",
+        "returns": "Varies",
+        "description": "Retrieves the value of a Java object's data member. The first argument is the object (or the name of a class, for a static member) and the second argument is the name of the field. The return value is converted to a suitable Jess value exactly as for `call`."
+    },
+    "get-multithread-io": {
+        "title": "(get-multithread-io)",
+        "returns": "Boolean",
+        "description": "Returns `TRUE` is Jess is currently using a separate thread to flush I/O streams. Turning this on can lead to a modest performance enhancement, at the expense of possible loss of output on program termination."
+    },
+    "get-reset-globals": {
+        "title": "(get-reset-globals)",
+        "returns": "Boolean",
+        "description": "Indicates the current setting of global variable reset behavior. See `set-reset-globals` for an explanation of this property."
+    },
+    "get-salience-evaluation": {
+        "title": "(get-salience-evaluation)",
+        "returns": "Symbol",
+        "description": "Indicates the current setting of salience evaluation behavior. See `set-salience-evaluation` for an explanation of this property."
+    },
+    "get-strategy": {
+        "title": "(get-strategy)",
+        "returns": "A symbol, the name of the current conflict resolution strategy.",
+        "description": "Returns the name of the current conflict resolution strategy. See `set-strategy`."
+    },
+    "halt": {
+        "title": "(halt)",
+        "returns": "TRUE",
+        "description": "Halts rule execution. No effect unless called from the RHS of a rule."
+    },
+    "help": {
+        "title": "(help <function-name>)",
+        "arguments": "A function name",
+        "description": "Prints a description of the named function to WSTDOUT."
+    },
+    "if": {
+        "title": "(if <expression> then <action>* [else <action>*])",
+        "arguments": "A Boolean variable or function call returning Boolean, the symbol then, and any number of additional expressions; optionally followed by the symbol else and another list of expressions.",
+        "returns": "Varies",
+        "description": "Allows conditional execution of a group of actions. The boolean expression is evaluated. If it does not evaluate to `FALSE`, the first list of expressions is evaluated, and the return value is that returned by the last expression of that list. If it does evaluate to `FALSE`, and the optional second list of expressions is supplied, those expressions are evaluated and the value of the last is returned. \n\n Example: \n\n ``` \n (if (> ?x 100) then \n &emsp; (printout t \"X is big\" crlf) \n &nbsp; else \n &emsp; (printout t \"X is small\" crlf)) \n ```"
+    },
+    "implement": {
+        "title": "(implement <interface> [using] <function>)",
+        "arguments": "The name of an interface, the optional symbol \"using\", and a Jess function or lambda expression",
+        "returns": "An object that implements the given interface",
+        "description": "Lets you implement any interface from Jess. Here's an example of creating a Runnable object entirely from Jess and running it in a new Thread: \n\n ``` \n ;; Function's arguments will be the name of the method called on proxy object \n ;; (run, here ), followed by the individual arguments passed to called \n ;; method (none here). \n (deffunction my-runnable ($?args) \n &emsp; (printout t \"Hello, World\" crlf)) \n -> TRUE \n ;; Make a Runnable whose run() method will call my-runnable \n (bind ?runnable (implement Runnable using my-runnable)) \n ;; Use the Runnable \n ((new Thread ?runnable) start) \n ```"
+    },
+    "implode$": {
+        "title": "(implode$ <list-expression>)",
+        "arguments": "One list",
+        "returns": "String",
+        "description": "Creates a string from a list value. Converts each element of the list to a string, and returns these strings concatenated with single intervening spaces."
+    },
+    "import": {
+        "title": "(import <symbol>)",
+        "arguments": "One symbol",
+        "returns": "TRUE",
+        "description": "Works like the Java `import` statement. You can import either a whole package using \n\n ``` \n (import java.io.*) \n ``` \n\n or a single class using \n\n ``` \n (import java.awt.Button) \n ``` \n\n After that, all functions that can accept a Java class name (`new`, `defclass`, `call`, etc) will refer to the import list to try to find the class that goes with a specific name. Note that `java.lang.*` is now implicitly imported. \n\n In addition, when you import a single class by name, Jess will define a series of Userfunctions that provide easy access to that class's static members. These functions are named `ClassName.memberName`. For example, because the classes in `java.lang` are imported this way, there are functions named \"Thread.currentThread\", \"Integer.parseInt\" which give access to those Java methods; there are also functions named \"Short.MAX_VALUE\" and \"Thread.NORM_PRIORITY\" which return the values of those Java constants. \n\n ``` \n (if (> ?i (Short.MAX_VALUE)) then \n &emsp; ((System.out) println \"Too large for short\") \n &nbsp; else \n &emsp; ((System.out) println \"Would fit in a short\")) \n ```"
+    },
+    "insert$": {
+        "title": "(insert$ <list-expression> <integer-expression> <single-or-list-expression>+)",
+        "arguments": "A list, an integer, and one or more lists",
+        "returns": "List",
+        "description": "Returns a new list like the original but with one or more values inserted. Inserts the elements of the second and later lists so that they appear starting at the given 1-based index of the first list."
+    },
+    "instanceof": {
+        "title": "(instanceof <Java object> <class-name>)",
+        "arguments": "A Java object and the name of a Java class",
+        "returns": "Boolean",
+        "description": "Returns true if the Java object can be assigned to a variable whose type is given by the class name. Implemented using `java.lang.Class.isInstance()`. The class name can be fully-qualified or it can be an imported name; see the discussion of the `import` function."
+    },
+    "integer": {
+        "title": "(integer <numeric-expression>)",
+        "arguments": "One numeric expression",
+        "returns": "int",
+        "description": "Converts its only argument to an integer. Truncates any fractional component of the value of the given numeric expression and returns the integral part."
+    },
+    "integerp": {
+        "title": "(integerp <expression>)",
+        "arguments": "One expression",
+        "returns": "Boolean",
+        "description": "Returns `TRUE` for integers; otherwise, returns `FALSE`."
+    },
+    "intersection$": {
+        "title": "(intersection$ <list-expression> <list-expression>)",
+        "arguments": "Two lists",
+        "returns": "List",
+        "description": "Returns the intersection of two lists. Returns a list consisting of the elements the two argument lists have in common."
+    },
+    "java-objectp": {
+        "title": "(java-objectp <expression>)",
+        "arguments": "One expression",
+        "returns": "Boolean",
+        "description": "Returns `TRUE` if the expression evaluates to a Java object."
+    },
+    "jess-type": {
+        "title": "(jess-type <value>)",
+        "arguments": "Any value",
+        "returns": "Symbol",
+        "description": "Returns a symbol denoting the Jess data type of the argument."
+    },
+    "jess-version-number": {
+        "title": "(jess-version-number)",
+        "returns": "float",
+        "description": "Returns a version number for Jess; currently 7.0."
+    },
+    "jess-version-string": {
+        "title": "(jess-version-string)",
+        "returns": "String",
+        "description": "Returns a human-readable string descriptive of this version of Jess."
+    },
+    "lambda": {
+        "title": "(lambda (<arguments>,) <function call>+)",
+        "arguments": "A list of arguments followed by any number of function calls",
+        "returns": "An anonymous deffunction",
+        "description": "Lets you create an unnamed deffunction. This is useful in conjunction with the `implement` function. In this example, we create a Runnable and execute it in a Thread. \n\n ``` \n ((new Thread (implement Runnable using \n &emsp; (lambda ($?args) \n &emsp; &emsp; (printout t \"Hello, World\" crlf)) \n &emsp; ) \n ) start) \n ``` \n\n This looks a lot like doing the same thing with an anonymous class in Java: \n\n ``` \n new Thread(new Runnable() { \n &emsp; public void run() { \n &emsp; &emsp; System.out.println(\"Hello, World!\"); \n &emsp; } \n }.start(); \n ```"
+    },
+    "length$": {
+        "title": "(length$ <list-expression>)",
+        "arguments": "A list",
+        "returns": "int",
+        "description": "Returns the number of fields in a list value."
+    },
+    "lexemep": {
+        "title": "(lexemep <expression>)",
+        "arguments": "Any expression",
+        "returns": "Boolean",
+        "description": "Returns `TRUE` for symbols and strings; otherwise, returns `FALSE`."
+    },
+    "list": {
+        "title": "(list <value>+)",
+        "arguments": "Any number of values",
+        "returns": "List",
+        "description": "An alias for `create$`."
+    },
+    "list-deftemplates": {
+        "title": "(list-deftemplates [* | module-name])",
+        "arguments": "Optionally, a module name, or the symbol \"*\"",
+        "description": "With no arguments, prints a list of all `deftemplate`s in the current module (not the focus module) to the 't' router. With a module name for an argument, prints the names of the templates in that module. With \"*\" as an argument, prints the names of all templates."
+    },
+    "list-focus-stack": {
+        "title": "(list-focus-stack)",
+        "description": "Displays the module focus stack, one module per line; the top of the stack (the focus module) is displayed first."
+    },
+    "list-function$": {
+        "title": "(list-function$)",
+        "returns": "List",
+        "description": "Returns a list list of all the functions currently callable, including intrinsics, deffunctions, and `jess.Userfunction`s. Each function name is a symbol. The names are sorted in alphabetical order."
+    },
+    "listp": {
+        "title": "(listp <expression>)",
+        "arguments": "Any value",
+        "returns": "Boolean",
+        "description": "Returns `TRUE` for list values; otherwise, returns `FALSE`."
+    },
+    "load-facts": {
+        "title": "(load-facts <file-name>)",
+        "arguments": "A string representing the name of a file of facts",
+        "returns": "Boolean",
+        "description": "Asserts facts loaded from a file. The argument should name a file containing a list of facts (not `deffacts` constructs, and no other commands or constructs). Jess will parse the file and assert each fact. The return value is the return value of assert when asserting the last fact. In an applet, `load-facts` will use `getDocumentBase()` to find the named file. \n\n ***Note*:** See the `batch` command for a discussion about specifying filenames in Jess."
+    },
+    "load-function": {
+        "title": "(load-function <class-name>)",
+        "arguments": "The name of a Java class",
+        "returns": "Boolean",
+        "description": "The argument must be the fully-qualified name of a Java class that implements the `jess.Userfunction` interface. The class is loaded in to Jess and added to the engine, thus making the corresponding command available. See [Extending Jess with Java](http://alvarestech.com/temp/fuzzyjess/Jess60/Jess70b7/docs/extending.html) for more information."
+    },
+    "load-package": {
+        "title": "(load-package <class-name>)",
+        "arguments": "The name of a Java class",
+        "returns": "Boolean",
+        "description": "The argument must be the fully-qualified name of a Java class that implements the `jess.Userpackage` interface. The class is loaded in to Jess and added to the engine, thus making the corresponding package of commands available. See [Extending Jess with Java](http://alvarestech.com/temp/fuzzyjess/Jess60/Jess70b7/docs/extending.html) for more information."
+    },
+    "log": {
+        "title": "(log <numeric-expression>)",
+        "arguments": "One numeric expression",
+        "returns": "Number",
+        "description": "Returns the logarithm base *e* of its only argument."
+    },
+    "log10": {
+        "title": "(log10 <numeric-expression>)",
+        "arguments": "One numeric expression",
+        "returns": "Number",
+        "description": "Returns the logarithm base-10 of its only argument."
+    },
+    "long": {
+        "title": "(long <expression>)",
+        "arguments": "One expression, either numeric or String",
+        "returns": "RU.LONG",
+        "description": "Interprets the expression as a Java long (if possible) and returns a long value. This function is retained for backward compatibility only, as the Jess language now allows long literals. \n\n ***Note*:** `long` throws an error if you pass in an RU.LONG."
+    },
+    "longp": {
+        "title": "(longp <expression>)",
+        "arguments": "One expression",
+        "returns": "Boolean",
+        "description": "Returns `TRUE` if the expression is of type RU.LONG; `FALSE` otherwise."
+    },
+    "lowcase": {
+        "title": "(lowcase <lexeme-expression>)",
+        "arguments": "One symbol or string.",
+        "returns": "String",
+        "description": "Converts uppercase characters in a string or symbol to lowercase. Returns the argument as an all-lowercase string."
+    },
+    "map": {
+        "title": "(map <function> <list>)",
+        "arguments": "A function and a list",
+        "returns": "List",
+        "description": "Calls the function on each item in the list; returns a list of all the results. The function can either be the name of a Userfunction, or it can be a `lambda` expression."
+    },
+    "matches": {
+        "title": "(matches <lexeme-expression>)",
+        "arguments": "One symbol, a rule or query name",
+        "returns": "TRUE",
+        "description": "Produces a printout, useful for debugging, of the contents of the left and right Rete memories of each two-input node on the given rule or query's LHS."
+    },
+    "max": {
+        "title": "(max <numeric-expression>+)",
+        "arguments": "One or more numerical expressions",
+        "returns": "Number",
+        "description": "Returns the value of its largest numeric argument"
+    },
+    "member$": {
+        "title": "(member$ <single-field-expression> <list-expression>)",
+        "arguments": "A value and a list",
+        "returns": "Integer or FALSE",
+        "description": "Returns the position (1-based index) of a single-field value within a list value; otherwise, returns `FALSE`."
+    },
+    "min": {
+        "title": "(min <numeric-expression>+)",
+        "arguments": "One or more numeric expressions",
+        "returns": "Number",
+        "description": "Returns the value of its smallest numeric argument."
+    },
+    "mod": {
+        "title": "(mod <numeric-expression> <numeric-expression>)",
+        "arguments": "Two integer expressions",
+        "returns": "int",
+        "description": "Returns the remainder of the result of dividing the first argument by its second (assuming that the result of the division must be an integer)."
+    },
+    "modify": {
+        "title": "(modify <fact-specifier> (<slot-name> <value>)+)",
+        "arguments": "A Fact and one or more two-element lists",
+        "returns": "Fact",
+        "description": "Modifies a given unordered fact in working memory. The first argument specifies the fact to modify, and can be either a Fact object (such as you'd obtain from a pattern binding) or an integer (the id number of a fact.) If you use the id number, the corresponding fact must be looked up using `jess.Rete.findFactByID(int)`, a slow operation. The fact must be an unordered fact. \n\n Subsequent arguments are two-item lists. Each list is taken as the name of a slot in this fact and a new value to assign to the slot. The fact is removed from working memory, the values in the specified slots are replaced with the new values, and the fact is reasserted. The fact-ID of the fact does not change. The fact itself is returned. A `jess.JessEvent` of type FACT + MODIFIED will be sent if the event mask is set appropriately. \n\n Modifying a `definstance` fact will cause the appropriate object properties to be set as well. \n\n As of Jess version 7, the slot names can be variables. \n\n It is important to remember that all pattern-matching happens during calls to `assert`, `retract`, `modify`, and related functions. Pattern-matching happens whether the engine is running or not."
+    },
+    "multifieldp": {
+        "title": "(multifieldp <expression>)",
+        "arguments": "Any value",
+        "returns": "Boolean",
+        "description": "**Deprecated.** Use `listp` instead."
+    },
+    "neq": {
+        "title": "(neq <expression> <expression>+)",
+        "arguments": "Two or more values",
+        "returns": "Boolean",
+        "description": "Returns `TRUE` if the first argument is not equal in type and value to all subsequent arguments (see `eq`). \n\n While often used in procedural code, this function is only rarely used during pattern matching. Direct matching is preferable."
+    },
+    "new": {
+        "title": "(new <string-expression> <new-arguments>+)",
+        "arguments": "The name of a Java class and zero or more expressions",
+        "returns": "Boolean",
+        "description": "Creates a new Java object and returns it. The first argument is the class name: `java.util.Vector`, for example. The second and later arguments are constructor arguments. The constructor will be chosen from among all constuctors for the named class based on a *first-best fit* algorithm. Built-in Jess types are converted as necessary to match available constructors. See the text for more details. Also see the `import` function."
+    },
+    "not": {
+        "title": "(not <expression>)",
+        "arguments": "One expression",
+        "returns": "Boolean",
+        "description": "Returns `TRUE` if its only arguments evaluates to `FALSE`; otherwise, returns `FALSE`. Note that this function is distinct from the [not conditional element](http://alvarestech.com/temp/fuzzyjess/Jess60/Jess70b7/docs/rules.html#not_ce)."
+    },
+    "nth$": {
+        "title": "(nth$ <integer-expression> <list-expression>)",
+        "arguments": "A number and a list",
+        "returns": "Varies",
+        "description": "Returns the value of the specified (1-based index) field of a list value."
+    },
+    "numberp": {
+        "title": "(numberp <expression>)",
+        "arguments": "One expression",
+        "returns": "Boolean",
+        "description": "Returns `TRUE` for numbers; otherwise, returns `FALSE`."
+    },
+    "oddp": {
+        "title": "(oddp <integer-expression>)",
+        "arguments": "One integer expression",
+        "returns": "Boolean",
+        "description": "Returns `TRUE` for odd numbers; otherwise, returns `FALSE`; see `evenp`."
+    },
+    "open": {
+        "title": "(open <file-name> <router-identifier> [r|w|a])",
+        "arguments": "A file name, an identifier for the file (a symbol), and optionally a mode string, one of r, w, a.",
+        "returns": "The file identifier, a router name.",
+        "description": "Opens a file. Subsequently, the given router identifier can be passed to `printout`, `read`, `readline`, or any other functions that accept I/O routers as arguments. By default, the file is opened for reading; if a mode string is given, it may be opened for reading only (`r`), writing only (`w`), or appending (`a`). \n\n ***Note*:** See the `batch` command for a discussion about specifying filenames in Jess."
+    },
+    "or": {
+        "title": "(or <expression>+)",
+        "arguments": "One or more expressions",
+        "returns": "Boolean",
+        "description": "Returns `TRUE` if any of the arguments evaluates to a non-`FALSE` value; otherwise, returns `FALSE`. Note that this function is distinct from the [or conditional element](http://alvarestech.com/temp/fuzzyjess/Jess60/Jess70b7/docs/rules.html#or_ce)."
+    },
+    "pi": {
+        "title": "(pi)",
+        "returns": "float",
+        "description": "Returns the number *pi*."
+    },
+    "pop-focus": {
+        "title": "(pop-focus)",
+        "returns": "The name of a module",
+        "description": "Removes the top module from the focus stack and returns its name."
+    },
+    "ppdeffacts": {
+        "title": "(ppdeffacts <symbol>)",
+        "arguments": "The name of a deffacts",
+        "returns": "String",
+        "description": "Returns a pretty-print rendering of a `deffacts`."
+    },
+    "ppdeffunction": {
+        "title": "(ppdeffunction <symbol>)",
+        "arguments": "The name of a deffunction",
+        "returns": "String",
+        "description": "Returns a pretty-print representation of a `deffunction`."
+    },
+    "ppdefglobal": {
+        "title": "(ppdefglobal <symbol>)",
+        "arguments": "The name of a defglobal",
+        "returns": "String",
+        "description": "Returns a pretty-print representation of a `defglobal`."
+    },
+    "ppdefquery": {
+        "title": "(ppdefquery <symbol>)",
+        "arguments": "The name of a defquery",
+        "returns": "String",
+        "description": "Returns a pretty-print rendering of a `defquery`."
+    },
+    "ppdefrule": {
+        "title": "(ppdefrule <symbol>)",
+        "arguments": "The name of a rule or query, or the symbol *",
+        "returns": "String",
+        "description": "Returns a pretty-print rendering of a `defrule` or `defquery`. If the argument is the symbol \"*\", a single string containing all existing rules and queries in alphabetical order of their names is returned."
+    },
+    "ppdeftemplate": {
+        "title": "(ppdeftemplate <symbol>)",
+        "arguments": "The name of a template",
+        "returns": "String",
+        "description": "Returns a pretty-print representation of a `deftemplate`."
+    },
+    "printout": {
+        "title": "(printout <router-identifier> <expression>*)",
+        "arguments": "A router identifier followed by zero or more expressions",
+        "description": "Sends unformatted output to the specified logical name. Prints its arguments to the named router, which must be open for output. No spaces are added between arguments. The special symbol `crlf` prints as a newline. The special router name `t` can be used to signify standard output."
+    },
+    "progn": {
+        "title": "(progn <expression>+)",
+        "arguments": "One or more expressions",
+        "returns": "The result of evaluating the last expression.",
+        "description": "A simple control structure that allows you to group multiple function calls where syntactically only one is allowed - for instance, on the LHS of a rule."
+    },
+    "provide": {
+        "title": "(provide <symbol>)",
+        "arguments": "A symbol",
+        "returns": "Returns the symbol.",
+        "description": "Provides a feature to Jess. The symbol is entered in the feature table. See `require`."
+    },
+    "random": {
+        "title": "(random)",
+        "returns": "int",
+        "description": "Returns a pseudo-random integer between 0 and 65536."
+    },
+    "read": {
+        "title": "(read [<router-identifier>])",
+        "arguments": "An optional input router identifier (when omitted `t` is the default)",
+        "returns": "Varies",
+        "description": "Reads a single-field value from a specified logical name. Read a single symbol, string, or number from the named router, returns this value. The router `t` means standard input. Newlines are treated as ordinary whitespace. If you need to parse text line-by-line, use `readline` and `explode$`."
+    },
+    "readline": {
+        "title": "(readline [<router-identifier>])",
+        "arguments": "An optional input router identifier (when omitted `t` is the default)",
+        "returns": "String",
+        "description": "Reads an entire line as a string from the specified logical name (router). The router `t` means standard input."
+    },
+    "regexp": {
+        "title": "(regexp <regular expression> <data>)",
+        "arguments": "A regular expression and a target, as symbols or strings",
+        "returns": "Boolean",
+        "description": "Compiles the regular expression and tries to match it against the data, returning the Boolean result of the match. Uses the `java.util.regexp` package."
+    },
+    "replace$": {
+        "title": "(replace$ <list-expression> <begin-integer-expression> <end-integer-expression> <list-expression>+)",
+        "arguments": "A list, two numeric expressions, and one or more additional single or list values",
+        "returns": "List",
+        "description": "Returns a copy of a the original list with the elements in a specified range replaced with a new set of values. The variable number of final arguments are inserted into the first list, replacing elements between the 1-based indices given by the two numeric arguments, inclusive. Example: \n\n ``` \n (replace$ (create$ a b c) 2 2 (create$ x y z)) \n (a x y z c) \n ```"
+    },
+    "require": {
+        "title": "(require <symbol> [<filename>])",
+        "arguments": "A symbol, and optionally a filename",
+        "returns": "Returns the symbol, or throws an exception on failure.",
+        "description": "`require` is similar to `batch`. The main difference is that it will only load a file once. If a file has been read before, this function won't read it a second time, whereas `batch` would. \n\n The symbol argument is a \"feature name\". A file can \"provide a feature\" (see the `provide` function.) Once a feature has been provided, subsequent calls to `require` for this same feature name will be ignored. \n\n If the optional filename is supplied, Jess passes that name to `batch` to attempt to read the file, if necessary. If the optional filename is not provided, Jess appends \".clp\" to the feature name and uses that as the argument to `batch`. If the feature is not provided by the first file that is read, an exception is thrown to announce this failure. \n\n The most important use of \"require\" is to establish dependencies between files in the JessDE editor."
+    },
+    "require*": {
+        "title": "(require* <symbol> [<filename>])",
+        "arguments": "A symbol, and optionally a filename",
+        "returns": "Returns the symbol, or nil on failure.",
+        "description": "This function is just like `require`, except that it fails silently if the file is missing or if there is an error while parsing the required file. If the feature is provided, the feature name is returned; otherwise, `nil` is returned instead."
+    },
+    "reset": {
+        "title": "(reset)",
+        "returns": "TRUE",
+        "description": "Removes all facts from working memory, removes all activations, then asserts the fact (`initial-fact`), then asserts all facts found in deffacts, asserts a fact representing each registered definstance, and (if the set-reset-globals property is `TRUE`) initializes all defglobals."
+    },
+    "rest$": {
+        "title": "(rest$ <list-expression>)",
+        "arguments": "One list",
+        "returns": "List",
+        "description": "Returns all but the first field of a list as a new list."
+    },
+    "retract": {
+        "title": "(retract <integer-expression>+)",
+        "arguments": "One or more `jess.Fact` objects or integers",
+        "returns": "TRUE",
+        "description": "Retracts the facts given. Retracting a definstance fact will result in an implict call to `undefinstance` for the corresponding object (the object will no longer be pattern-matched). A of type FACT + REMOVED will be sent if the event mask is set appropriately. Note that the arguments to this function must be integers or actual `jess.Fact` objects; they cannot be explicit facts as are accepted by `assert`. \n\n It is important to remember that all pattern-matching happens during calls to `assert`, `retract`, `modify`, and related functions. Pattern-matching happens whether the engine is running or not."
+    },
+    "retract-string": {
+        "title": "(retract-string <string>)",
+        "arguments": "A string, a representation of a Fact",
+        "returns": "TRUE",
+        "description": "Parses the string as a Fact; if such a fact exists in working memory, calls `retract` on it."
+    },
+    "return": {
+        "title": "(return [<expression>])",
+        "arguments": "An optional expression",
+        "returns": "Varies",
+        "description": "From a `deffunction`, returns the given value and exits the deffunction immediately. From the RHS of a `defrule`, terminates the rule's execution immediately and pops the current focus module from the focus stack. No argument should be given when return is called from the RHS of a rule."
+    },
+    "round": {
+        "title": "(round <numeric-expression>)",
+        "arguments": "One numeric expression",
+        "returns": "int",
+        "description": "Rounds its argument toward the closest integer or negative infinity if exactly between two integers."
+    },
+    "rules": {
+        "title": "(rules [<string> | *])",
+        "arguments": "Optionally, a module name, or the symbol \"*\"",
+        "description": "With no arguments, prints a list of all rules and queries in the current module (not the focus module) to the `t` router. With a module name for an argument, prints the names of the rules and queries in that module. With \"*\" as an argument, prints the names of all rules and queries."
+    },
+    "run": {
+        "title": "(run [<integer-expression>])",
+        "arguments": "Optionally, a single integer",
+        "returns": "TRUE",
+        "description": "Starts the inference engine. If no argument is supplied, Jess will keep running until no more activations remain or `halt` is called. If an argument is supplied, it gives the maximum number of rules to fire before stopping."
+    },
+    "run-query": {
+        "title": "(run-query <query-name> <expression>+)",
+        "arguments": "The name of a query, and zero or more additional expressions",
+        "returns": "A `java.util.Iterator`",
+        "description": "**Deprecated.** Use `run-query*` instead. \n\n Runs a `query` and returns a `java.util.Iterator` of the matches. See the documentation for `defquery` for more details. Note that run-query can lead to backwards chaining, which can cause rules to fire; thus if run-query is called on a rule RHS, other rules' RHSs may run to completion before the instigating rule completes. Putting run-query on a rule RHS can also cause the count of executed rules returned by `run` to be low. \n\n Note that the `Iterator` returned by this function should be used immediately. It will become invalid if any of the following functions are called before you've used it: `reset`, `count-query-results`, or `run-query`. It *may* become invalid if any of the following are called: `assert`, `retract`, `modify`, or `duplicate`, and if any of the affected facts are involved in the active query's result."
+    },
+    "run-query*": {
+        "title": "(run-query <query-name> <expression>+)",
+        "arguments": "The name of a query, and zero or more additional expressions",
+        "returns": "A `jess.QueryResult`",
+        "description": "Runs a `query` and returns a `jess.QueryResult` of the matches. See the documentation for `defquery` for more details. Note that run-query can lead to backwards chaining, which can cause rules to fire; thus if run-query is called on a rule RHS, other rules' RHSs may run to completion before the instigating rule completes. Putting `run-query*` on a rule RHS can also cause the count of executed rules returned by `run` to be low."
+    },
+    "run-until-halt": {
+        "title": "(run-until-halt)",
+        "returns": "int",
+        "description": "Runs the engine until `halt` is called. Returns the number of rules fired. When there are no active rules, the calling thread will be blocked waiting on the activation semaphore."
+    },
+    "save-facts": {
+        "title": "(save-facts <file-name> [<deftemplate-name>])",
+        "arguments": "A filename, and optionally a symbol",
+        "returns": "Boolean",
+        "description": "Saves facts to a file. Attempts to open the named file for writing, and then writes a list of all facts in working memory to the file. This file is suitable for reading with load-facts. If the optional second argument is given, only facts whose head matches this symbol will be saved. Does not work in applets. \n\n ***Note*:** See the `batch` command for a discussion about specifying filenames in Jess."
+    },
+    "set": {
+        "title": "(set <Java object> <string-expression> <expression>)",
+        "arguments": "A Java object, a property name, and an expression",
+        "returns": "The last argument",
+        "description": "Sets a JavaBean's property to the given value. The first argument is the Bean object; the second argument is the name of the property. The third value is the new value for the property; the same conversions are applied as for `new` and `call`."
+    },
+    "set-current-module": {
+        "title": "(set-current-module <module-name>)",
+        "arguments": "The name of a valid module",
+        "returns": "The name of the previous current module",
+        "description": "Sets the current module. Any constructs defined without explicitly naming a module are defined in the current module. Note that defining a defmodule also sets the current module."
+    },
+    "set-factory": {
+        "title": "(set-factory [factory object])",
+        "arguments": "An object that implements the interface `jess.factory.Factory`",
+        "returns": "A `jess.factory.Factory`",
+        "description": "Set the \"thing factory\" for the active Rete object. Providing an alternate \"thing factory\" is a very advanced, and currently undocumented, way to extend Jess's functionality."
+    },
+    "setgen": {
+        "title": "(setgen <numeric-expression>)",
+        "arguments": "A numeric expression",
+        "returns": "TRUE",
+        "description": "Sets the starting number used by `gensym*`. Note that if this number has already been used, `gensym*` uses the next larger number that has not been used."
+    },
+    "set-member": {
+        "title": "(set-member (<Java object> | <string-expression>) <string> <expression>)",
+        "arguments": "A Java object or class name, a member variable name and an expression",
+        "returns": "The last argument",
+        "description": "Sets a Java object's member variable to the given value. The first argument is the object (or the name of the class, in the case of a static member variable). The second argument is the name of the variable. The third value is the new value for the variable; the same conversions are applied as for `new` and `call`."
+    },
+    "set-multithread-io": {
+        "title": "(set-multithread-io (TRUE | FALSE))",
+        "arguments": "Boolean",
+        "returns": "Boolean",
+        "description": "Specify whether Jess should use a separate thread to flush I/O streams. Turning this on can lead to a modest performance enhancement, at the expense of possible loss of output on program termination. Returns the previous value of this property."
+    },
+    "set-node-index-hash": {
+        "title": "(set-node-index-hash <integer>)",
+        "arguments": "One integral value",
+        "returns": "TRUE",
+        "description": "Sets the default hashing key used in all Rete network join node memories defined after the function is called; this function will not affect parts of the network already in existence at the time of the call. A small value will give rise to memory-efficient nodes; a larger value will use more memory. If the created nodes will generally have to remember many partial matches, large numbers will lead to faster performance; the opposite may be true for nodes which will rarely hold more than one or two partial matches. This function sets the default; explicit `declare` statements can override this for specific rules."
+    },
+    "set-nonvalue-class": {
+        "title": "(set-nonvalue-class <string-expression>)",
+        "arguments": "The name of a Java class",
+        "returns": "TRUE",
+        "description": "A *value object* is an instance of a class that represents a specific value. They are often immutable like Integer, Double, and String. For Jess's purposes, a value object is one whose `hashCode()` method returns a constant -- i.e., whose hash code doesn't change during normal operation of the class. Integer, Double, and all the other wrapper classes qualify, as does String, and generally all immutable classes. Any class that doesn't override the default `hashCode()` method also qualifies as a value object by the definition. Java's Collection classes (Lists, Maps, Sets, etc.) are classic examples of classes that are *not* value objects, because their hash codes depend on the collection's contents. \n\n As far as Jess is concerned, an object is a value object as long as its hash code won't change while the object is in working memory. This includes the case where the object is contained in a slot of any fact. If the hash code will only change during calls to `modify`, then the object is still a value object. \n\n Jess can make certain assumptions about value objects that lead to large performance increases during pattern matching. Because many classes are actually value classes by Jess's broad definition, *Jess now assumes that all objects (except for Collections) are value objects by default*. If you're working with a class that is *not* a value class, it's very important that you tell Jess about it by using the set-nonvalue-class function or the static method `jess.HashCodeComputer.setNonValueClass()`. Failure to do so will lead to undefined (bad) behavior."
+    },
+    "set-reset-globals": {
+        "title": "(set-reset-globals <boolean>)",
+        "arguments": "One Boolean value",
+        "returns": "Boolean",
+        "description": "Changes the current setting of the global variable reset behavior. If this property is set to `TRUE` (the default), then the (reset) command reinitializes the values of global variables to their initial values (if the initial value was a function call, the function call is reexecuted.) If the property is set to `FALSE`, then (reset) will not affect global variables. Note that in previous versions of Jess, defglobals were always reset; but if the initial value was set with a function call, the function was *not* reevaluated. Now it is."
+    },
+    "set-salience-evaluation": {
+        "title": "(set-salience-evaluation (when-defined | when-activated | every-cycle))",
+        "arguments": "One of the symbols `when-defined`, `when-activated`, or `every-cycle`",
+        "returns": "One of the potential arguments (the previous value of this property)",
+        "description": "Changes the current setting of the salience evaluation behavior. By default, a rule's salience will be determined once, when the rule is defined (when-defined.) If this property is set to when-activated, then the salience of each rule will be redetermined immediately before each time it is placed on the agenda. If the property is set to every-cycle, then the salience of every rule is redetermined immediately after each time any rule fires."
+    },
+    "set-strategy": {
+        "title": "(set-strategy (depth | breadth))",
+        "arguments": "A symbol or string representing the name of a strategy (can be a fully-qualifed Java class name). You can use `depth` and `breadth` to represent the two built-in strategies.",
+        "returns": "The previous strategy as a symbol.",
+        "description": "Lets you specify the conflict resolution strategy Jess uses to order the firing of rules of equal salience. Currently, there are two strategies available: `depth` (LIFO) and `breadth` (FIFO). When the depth strategy is in effect (the default), more recently activated rules are fired before less recently activated rules of the same salience. When the breadth strategy is active, rules of the same salience fire in the order in which they are activated. Note that in either case, if several rules are activated simultaneously (i.e., by the same fact-assertion event) the order in which these several rules fire is unspecified, implementation-dependent and subject to change. More built-in strategies may be added in the future. You can implement your own strategies in Java by creating a class that implements the `jess.Strategy` interface and then specifying its fully-qualified classname as the argument to `set-strategy`. Details can be gleaned from the source."
+    },
+    "set-watch-router": {
+        "title": "(set-watch-router <router-name>)",
+        "arguments": "A symbol, the name of a valid output router",
+        "returns": "The previous watch router name",
+        "description": "Sets the router that the output from `watch` goes to. The old value is returned. Note that the watch router is not reset by `reset` or `clear`."
+    },
+    "show-deffacts": {
+        "title": "(show-deffacts)",
+        "description": "Displays all defined `deffacts` to the `t` router."
+    },
+    "show-deftemplates": {
+        "title": "(show-deftemplates)",
+        "description": "Displays all defined `deftemplate`s to the `t` router."
+    },
+    "show-jess-listeners": {
+        "title": "(show-jess-listeners)",
+        "description": "Displays all `jess.JessListener`s registered with the engine to the `t` router."
+    },
+    "socket": {
+        "title": "(socket <Internet-hostname> <TCP-port-number> <router-identifier>)",
+        "arguments": "An Internet hostname, a TCP port number, and a router identifier",
+        "returns": "The router identifier",
+        "description": "Somewhat equivalent to `open`, except that instead of opening a file, opens an unbuffered TCP network connection to the named host at the named port, and installs it as a pair of read and write routers under the given name."
+    },
+    "sqrt": {
+        "title": "(sqrt <numeric-expression>)",
+        "arguments": "A numeric expression",
+        "returns": "Number",
+        "description": "Returns the square root of its only argument."
+    },
+    "store": {
+        "title": "(store <string or symbol> <expression>)",
+        "arguments": "A string or symbol and any other value",
+        "returns": "Varies",
+        "description": "Associates the expression with the name given by the first argument, such that later calls to the `fetch` will retrieve it. Storing the symbol `nil` will clear any value associated with name. Analagous to the `store()` member function of the `jess.Rete` class. See section on [using store and fetch](http://alvarestech.com/temp/fuzzyjess/Jess60/Jess70b7/docs/java.html#xfer) for more details."
+    },
+    "str-cat": {
+        "title": "(str-cat <expression>*)",
+        "arguments": "Zero or more expressions",
+        "returns": "String",
+        "description": "Concatenates its arguments as strings to form a single string. For Java objects, the `toString()` method of the contained object is called."
+    },
+    "str-compare": {
+        "title": "(str-compare <string-expression> <string-expression>)",
+        "arguments": "Two symbols or strings",
+        "returns": "int",
+        "description": "Lexicographically compares two strings. Returns 0 if the strings are identical, a negative integer if the first is lexicographically less than the second, a positive integer if lexicographically greater."
+    },
+    "str-index": {
+        "title": "(str-index <lexeme-expression> <lexeme-expression>)",
+        "arguments": "Two symbols or strings",
+        "returns": "int or FALSE",
+        "description": "Returns the position of the first argument within the second argument. This is the 1-based index at which the first string first appears in the second; otherwise, returns `FALSE`."
+    },
+    "stringp": {
+        "title": "(stringp <expression>)",
+        "arguments": "One expression",
+        "returns": "Boolean",
+        "description": "Returns `TRUE` for strings; otherwise, returns `FALSE`."
+    },
+    "str-length": {
+        "title": "(str-length <lexeme-expression>)",
+        "arguments": "A symbol or string",
+        "returns": "int",
+        "description": "Returns the length of a symbol in characters."
+    },
+    "subseq$": {
+        "title": "(subseq$ <list-expression> <begin-integer-expression> <end-integer-expression>)",
+        "arguments": "A list and two numeric expressions",
+        "returns": "List",
+        "description": "Extracts the specified range from a list value consisting of the elements between the two 1-based indices of the given list, inclusive."
+    },
+    "subsetp": {
+        "title": "(subsetp <list-expression> <list-expression>)",
+        "arguments": "Two lists",
+        "returns": "Boolean",
+        "description": "Returns `TRUE` if the first argument is a subset of the second (i.e., all the elements of the first list appear in the second list); otherwise, returns `FALSE`."
+    },
+    "sub-string": {
+        "title": "(sub-string <begin-integer-expression> <end-integer-expression> <string-expression>)",
+        "arguments": "Two numbers and a string",
+        "returns": "String",
+        "description": "Retrieves a subportion from a string. Returns the string consisting of the characters between the two 1-based indices of the given string, inclusive."
+    },
+    "symbolp": {
+        "title": "(symbolp <expression>)",
+        "arguments": "One expression",
+        "returns": "Boolean",
+        "description": "Returns `TRUE` for symbols; otherwise, returns `FALSE`."
+    },
+    "sym-cat": {
+        "title": "(sym-cat <expression>*)",
+        "arguments": "Zero or more expressions",
+        "returns": "Symbol",
+        "description": "Concatenates its arguments as strings to form a single symbol. For Java objects, the `toString()` method of the contained object is called."
+    },
+    "synchronized": {
+        "title": "(synchronied <java-object> <action>*)",
+        "arguments": "Any Java object, followed by any number of expressions",
+        "returns": "Varies",
+        "description": "Executes the expressions inside a Java \"synchronized\" block which locks the given object. Returns the value of the last expression evaluated."
+    },
+    "system": {
+        "title": "(system <lexeme-expression>+ [&])",
+        "arguments": "One or more symbols or strings",
+        "returns": "a `java.lang.Process` object, or `FALSE`",
+        "description": "Sends a command to the operating system. Each symbol or string becomes one element of the argument array in a call to the Java `java.lang.Runtime.exec(String[] cmdaray)` method; therefore to execute the command `edit myfile.txt`, you should call `(system edit myfile.txt)`, not `(system \"edit myfile.txt\")`. \n\n Normally blocks (i.e., Jess stops until the launched application returns), but if the last argument is an ampersand (`&`), the program will run in the background. The standard output and standard error streams of the process are connected to the `t` router, but the input of the process is not connected to the terminal. \n\n Returns the Java Process object. You can call `waitFor` and then `exitValue` to get the exit status of the process."
+    },
+    "throw": {
+        "title": "(throw <java-object>)",
+        "arguments": "A Java object that must inherit from `java.lang.Throwable`",
+        "description": "Throws the given exception object. If the object is a `jess.JessException`, throws it directly. If the object is some other type of exception, it is wrapped in a `JessException` before throwing. The object's stack trace is filled in such that the exception will appear to have been created by the `throw` function."
+    },
+    "time": {
+        "title": "(time)",
+        "returns": "Number",
+        "description": "Returns the number of seconds since 12:00 AM, Jan 1, 1970."
+    },
+    "try": {
+        "title": "(try <expression>* [catch <expression>*] [finally <expression>*])",
+        "arguments": "One or more expressions, followed optionally by the symbol `catch` followed by zero or more expressions, followed optionally by the symbol `finally` followed by zero or more expressions. Either the `catch`, or the `finally`, or both must be included.",
+        "returns": "Varies",
+        "description": "This command works something like Java `try` with a few simplifications. The biggest difference is that the `catch` clause can specify neither a type of exception nor a variable to receive the exception object. All exceptions occurring in a `try` block are routed to the single `catch` block. The variable `?ERROR` is made to point to the exception object. For example: \n\n ``` \n (try \n &emsp; (open NoSuchFile.txt r) \n &nbsp; catch \n &emsp; (printout t (call ?ERROR toString) crlf)) \n ``` \n\n prints \n\n ``` \n Jess reported an error in routine open \n &emsp; while executing (open NoSuchFile.txt r). \n Message: I/O Exception. \n ``` \n\n An empty `catch` block is fine. It just signifies ignoring possible errors. \n\n The code in the `finally` block, if present, is executed after all try and/or catch code has executed, immediately before the `try` function returns."
+    },
+    "undefadvice": {
+        "title": "(undefadvice (<function-name> | ALL | <list>))",
+        "arguments": "A function name, or ALL, or a list of function names",
+        "returns": "TRUE",
+        "description": "Removes all advice from the named function(s)."
+    },
+    "undeffacts": {
+        "title": "(undeffacts <deffacts-name>)",
+        "arguments": "The name of a deffacts, or the symbol \"*\"",
+        "returns": "Boolean",
+        "description": "Deletes a deffacts. The next time the engine is reset, the facts in that deffacts will not be asserted. If the argument is \"*\", all deffacts are deleted."
+    },
+    "undefinstance": {
+        "title": "(undefinstance (<java-object> | * ))",
+        "arguments": "A Java object, or the symbol \"*\"",
+        "returns": "Boolean",
+        "description": "If the object currently has a shadow fact, it is removed from the working memory. Furthermore, if the object has a `java.beans.PropertyChangeListener` installed, this is removed as well. If the argument is \"*\" this is done for all `definstance`s."
+    },
+    "undefrule": {
+        "title": "(undefrule <rule-name>)",
+        "arguments": "The name of a rule",
+        "returns": "Boolean",
+        "description": "Deletes a rule. Removes the named rule from the Rete network and returns TRUE if the rule existed. This rule will never fire again."
+    },
+    "union$": {
+        "title": "(union$ [<list-expression>]+)",
+        "arguments": "One or more lists",
+        "returns": "List",
+        "description": "Returns a new list consisting of the union of all of its list arguments (i.e., of all the elements that appear in any of the arguments with duplicates removed)."
+    },
+    "unwatch": {
+        "title": "(unwatch <watch-item>)",
+        "arguments": "One or more of the symbols `all`, `rules`, `compilations`, `activations`, `facts`, `focus`",
+        "description": "Causes trace output to not be printed for the given indicators. See `watch`."
+    },
+    "upcase": {
+        "title": "(upcase <lexeme-expression>)",
+        "arguments": "A string or symbol",
+        "returns": "String",
+        "description": "Converts lowercase characters in a string or symbol to uppercase. Returns the argument as an all-uppercase string."
+    },
+    "update": {
+        "title": "(update <java-object>+)",
+        "arguments": "One or more Java objects, previously passed as arguments to `definstance`.",
+        "returns": "The shadow fact tied to the last argument.",
+        "description": "Static definstances aren't updated automatically, since Jess doesn't know when a definstanced object has been changed. This function lets you tell Jess explicitly that one or more Java objects have been updated. In response, Jess will find their corresponding shadow facts and update all their slots."
+    },
+    "view": {
+        "title": "(view)",
+        "returns": "TRUE",
+        "description": "The view command displays a live snapshot of the Rete network in a graphical window. See [How Jess Works](http://alvarestech.com/temp/fuzzyjess/Jess60/Jess70b7/docs/rete.html) for details."
+    },
+    "watch": {
+        "title": "(watch (all | rules | compilations | activations | facts))",
+        "arguments": "One or more of the symbols `all`, `rules`, `compilations`, `activations`, `facts`, `focus` activations",
+        "returns": "TRUE",
+        "description": "Produces additional debug output when specific events happen in Jess, depending on the argument(s). Any number of different watches can be active simultaneously: \n\n - `rules`: prints a message when any rule fires. \n\n - `compilations`: prints a message when any rule is compiled. \n\n - `activations`: prints a message when any rule is activated, or deactivated, showing which facts have caused the event. \n\n - `facts`: print a message whenever a fact is asserted or retracted. \n\n - `focus`: print a message for each change to the module focus stack. \n\n - `all`: all of the above."
+    },
+    "while": {
+        "title": "(while <expression> [do] <action>*)",
+        "arguments": "A Boolean expression, the symbol `do`, and zero or more expressions",
+        "returns": "Varies",
+        "description": "Allows conditional looping. Evaluates the boolean expression repeatedly. As long as it does not equal `FALSE`, the list of other expressions are evaluated. The value of the last expression evaluated is the return value."
+    }
+}

@@ -4,5 +4,6 @@ This extension colors your JESS code.
 
 ## Features
 
-Code Color
-Parenthesis Pairing
+Code Color <br>
+Parenthesis Pairing <br>
+Builtin Function Information Hover Provider <br>

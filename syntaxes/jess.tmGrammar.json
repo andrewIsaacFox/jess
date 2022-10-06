@@ -33,12 +33,12 @@
         },
         "single-string": {
             "name": "string.quoted.double",
-            "match": "\"(((?<!\\\\)\\\\\")|[^\"])*(?<!\\\\)\""
+            "match": "\"((\\\\.)|[^\\\\\"])*\""
         },
         "multi-string": {
             "name": "string.quoted.double.multiline",
             "begin": "\"",
-            "end": "(?<!\\\\)\""
+            "end": "(\n|[^\\\\])(\\\\\\\\)*\""
         },
         "number": {
             "name": "constant.numeric",
