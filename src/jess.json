@@ -399,7 +399,7 @@
         "title": "(for <initializer> <condition> <increment> <action>*)",
         "arguments": "Three or more expressions",
         "returns": "Varies",
-        "description": "Jess's `for` function works just like Java's `for` loop. First the initializer is evaluated. Then the condition is evaluated. If it does not evaluate to `FALSE`, the body expressions are evaluated in order. Next, the increment is evaluated, and then the condition is checked again. The loop continues until the condition evaluates to `FALSE` or until a `return` is encountered. \n\n Example: \n\n ``` \n (for (bind ?i 0) (< ?i 10) (++ ?i) \n &emsp; (printout t ?i crlf)) \n ``` \n\n In Java, the initializer, condition, or increment can be empty. In Jess, you can use the constant `nil` as an equivalent."
+        "description": "Jess's `for` function works just like Java's `for` loop. First the initializer is evaluated. Then the condition is evaluated. If it does not evaluate to `FALSE`, the body expressions are evaluated in order. Next, the increment is evaluated, and then the condition is checked again. The loop continues until the condition evaluates to `FALSE` or until a `return` is encountered. \n\n Example: \n\n ``` \n (for (bind ?i 0) (< ?i 10) (++ ?i) \n    (printout t ?i crlf)) \n ``` \n\n In Java, the initializer, condition, or increment can be empty. In Jess, you can use the constant `nil` as an equivalent."
     },
     "foreach": {
         "title": "(foreach <variable> <list-expression> <action>*)",
@@ -479,13 +479,13 @@
         "title": "(if <expression> then <action>* [else <action>*])",
         "arguments": "A Boolean variable or function call returning Boolean, the symbol then, and any number of additional expressions; optionally followed by the symbol else and another list of expressions.",
         "returns": "Varies",
-        "description": "Allows conditional execution of a group of actions. The boolean expression is evaluated. If it does not evaluate to `FALSE`, the first list of expressions is evaluated, and the return value is that returned by the last expression of that list. If it does evaluate to `FALSE`, and the optional second list of expressions is supplied, those expressions are evaluated and the value of the last is returned. \n\n Example: \n\n ``` \n (if (> ?x 100) then \n &emsp; (printout t \"X is big\" crlf) \n &nbsp; else \n &emsp; (printout t \"X is small\" crlf)) \n ```"
+        "description": "Allows conditional execution of a group of actions. The boolean expression is evaluated. If it does not evaluate to `FALSE`, the first list of expressions is evaluated, and the return value is that returned by the last expression of that list. If it does evaluate to `FALSE`, and the optional second list of expressions is supplied, those expressions are evaluated and the value of the last is returned. \n\n Example: \n\n ``` \n (if (> ?x 100) then \n     (printout t \"X is big\" crlf) \n &nbsp; else \n     (printout t \"X is small\" crlf)) \n ```"
     },
     "implement": {
         "title": "(implement <interface> [using] <function>)",
         "arguments": "The name of an interface, the optional symbol \"using\", and a Jess function or lambda expression",
         "returns": "An object that implements the given interface",
-        "description": "Lets you implement any interface from Jess. Here's an example of creating a Runnable object entirely from Jess and running it in a new Thread: \n\n ``` \n ;; Function's arguments will be the name of the method called on proxy object \n ;; (run, here ), followed by the individual arguments passed to called \n ;; method (none here). \n (deffunction my-runnable ($?args) \n &emsp; (printout t \"Hello, World\" crlf)) \n -> TRUE \n ;; Make a Runnable whose run() method will call my-runnable \n (bind ?runnable (implement Runnable using my-runnable)) \n ;; Use the Runnable \n ((new Thread ?runnable) start) \n ```"
+        "description": "Lets you implement any interface from Jess. Here's an example of creating a Runnable object entirely from Jess and running it in a new Thread: \n\n ``` \n ;; Function's arguments will be the name of the method called on proxy object \n ;; (run, here ), followed by the individual arguments passed to called \n ;; method (none here). \n (deffunction my-runnable ($?args) \n     (printout t \"Hello, World\" crlf)) \n -> TRUE \n ;; Make a Runnable whose run() method will call my-runnable \n (bind ?runnable (implement Runnable using my-runnable)) \n ;; Use the Runnable \n ((new Thread ?runnable) start) \n ```"
     },
     "implode$": {
         "title": "(implode$ <list-expression>)",
@@ -497,7 +497,7 @@
         "title": "(import <symbol>)",
         "arguments": "One symbol",
         "returns": "TRUE",
-        "description": "Works like the Java `import` statement. You can import either a whole package using \n\n ``` \n (import java.io.*) \n ``` \n\n or a single class using \n\n ``` \n (import java.awt.Button) \n ``` \n\n After that, all functions that can accept a Java class name (`new`, `defclass`, `call`, etc) will refer to the import list to try to find the class that goes with a specific name. Note that `java.lang.*` is now implicitly imported. \n\n In addition, when you import a single class by name, Jess will define a series of Userfunctions that provide easy access to that class's static members. These functions are named `ClassName.memberName`. For example, because the classes in `java.lang` are imported this way, there are functions named \"Thread.currentThread\", \"Integer.parseInt\" which give access to those Java methods; there are also functions named \"Short.MAX_VALUE\" and \"Thread.NORM_PRIORITY\" which return the values of those Java constants. \n\n ``` \n (if (> ?i (Short.MAX_VALUE)) then \n &emsp; ((System.out) println \"Too large for short\") \n &nbsp; else \n &emsp; ((System.out) println \"Would fit in a short\")) \n ```"
+        "description": "Works like the Java `import` statement. You can import either a whole package using \n\n ``` \n (import java.io.*) \n ``` \n\n or a single class using \n\n ``` \n (import java.awt.Button) \n ``` \n\n After that, all functions that can accept a Java class name (`new`, `defclass`, `call`, etc) will refer to the import list to try to find the class that goes with a specific name. Note that `java.lang.*` is now implicitly imported. \n\n In addition, when you import a single class by name, Jess will define a series of Userfunctions that provide easy access to that class's static members. These functions are named `ClassName.memberName`. For example, because the classes in `java.lang` are imported this way, there are functions named \"Thread.currentThread\", \"Integer.parseInt\" which give access to those Java methods; there are also functions named \"Short.MAX_VALUE\" and \"Thread.NORM_PRIORITY\" which return the values of those Java constants. \n\n ``` \n (if (> ?i (Short.MAX_VALUE)) then \n     ((System.out) println \"Too large for short\") \n &nbsp; else \n     ((System.out) println \"Would fit in a short\")) \n ```"
     },
     "insert$": {
         "title": "(insert$ <list-expression> <integer-expression> <single-or-list-expression>+)",
@@ -555,7 +555,7 @@
         "title": "(lambda (<arguments>,) <function call>+)",
         "arguments": "A list of arguments followed by any number of function calls",
         "returns": "An anonymous deffunction",
-        "description": "Lets you create an unnamed deffunction. This is useful in conjunction with the `implement` function. In this example, we create a Runnable and execute it in a Thread. \n\n ``` \n ((new Thread (implement Runnable using \n &emsp; (lambda ($?args) \n &emsp; &emsp; (printout t \"Hello, World\" crlf)) \n &emsp; ) \n ) start) \n ``` \n\n This looks a lot like doing the same thing with an anonymous class in Java: \n\n ``` \n new Thread(new Runnable() { \n &emsp; public void run() { \n &emsp; &emsp; System.out.println(\"Hello, World!\"); \n &emsp; } \n }.start(); \n ```"
+        "description": "Lets you create an unnamed deffunction. This is useful in conjunction with the `implement` function. In this example, we create a Runnable and execute it in a Thread. \n\n ``` \n ((new Thread (implement Runnable using \n     (lambda ($?args) \n         (printout t \"Hello, World\" crlf)) \n     ) \n ) start) \n ``` \n\n This looks a lot like doing the same thing with an anonymous class in Java: \n\n ``` \n new Thread(new Runnable() { \n     public void run() { \n         System.out.println(\"Hello, World!\"); \n     } \n }.start(); \n ```"
     },
     "length$": {
         "title": "(length$ <list-expression>)",
@@ -1100,7 +1100,7 @@
         "title": "(try <expression>* [catch <expression>*] [finally <expression>*])",
         "arguments": "One or more expressions, followed optionally by the symbol `catch` followed by zero or more expressions, followed optionally by the symbol `finally` followed by zero or more expressions. Either the `catch`, or the `finally`, or both must be included.",
         "returns": "Varies",
-        "description": "This command works something like Java `try` with a few simplifications. The biggest difference is that the `catch` clause can specify neither a type of exception nor a variable to receive the exception object. All exceptions occurring in a `try` block are routed to the single `catch` block. The variable `?ERROR` is made to point to the exception object. For example: \n\n ``` \n (try \n &emsp; (open NoSuchFile.txt r) \n &nbsp; catch \n &emsp; (printout t (call ?ERROR toString) crlf)) \n ``` \n\n prints \n\n ``` \n Jess reported an error in routine open \n &emsp; while executing (open NoSuchFile.txt r). \n Message: I/O Exception. \n ``` \n\n An empty `catch` block is fine. It just signifies ignoring possible errors. \n\n The code in the `finally` block, if present, is executed after all try and/or catch code has executed, immediately before the `try` function returns."
+        "description": "This command works something like Java `try` with a few simplifications. The biggest difference is that the `catch` clause can specify neither a type of exception nor a variable to receive the exception object. All exceptions occurring in a `try` block are routed to the single `catch` block. The variable `?ERROR` is made to point to the exception object. For example: \n\n ``` \n (try \n     (open NoSuchFile.txt r) \n &nbsp; catch \n     (printout t (call ?ERROR toString) crlf)) \n ``` \n\n prints \n\n ``` \n Jess reported an error in routine open \n     while executing (open NoSuchFile.txt r). \n Message: I/O Exception. \n ``` \n\n An empty `catch` block is fine. It just signifies ignoring possible errors. \n\n The code in the `finally` block, if present, is executed after all try and/or catch code has executed, immediately before the `try` function returns."
     },
     "undefadvice": {
         "title": "(undefadvice (<function-name> | ALL | <list>))",
@@ -1165,5 +1165,47 @@
         "arguments": "A Boolean expression, the symbol `do`, and zero or more expressions",
         "returns": "Varies",
         "description": "Allows conditional looping. Evaluates the boolean expression repeatedly. As long as it does not equal `FALSE`, the list of other expressions are evaluated. The value of the last expression evaluated is the return value."
+    },
+    "deffacts": {
+        "title": "(deffacts <symbol> [<string-expression>] <fact>*)",
+        "arguments": "The name of the deffacts (a symbol), an optional documentation string, and any number of valid facts",
+        "returns": "TRUE",
+        "description": "A deffacts is just a list of facts. When the `reset` function is called, Jess clears working memory, asserts the special `initial-fact` fact, and then asserts all the facts defined by deffacts. \n\n Example: \n\n ``` \n (deffacts a \n     [\"assert b and c\"] \n     (b) \n     (c) \n ) \n ```"
+    },
+    "deffunction": {
+        "title": "(deffunction <symbol> (<variable>*) <expression>* [return])",
+        "arguments": "The name of the deffunction (a symbol), a list of variable names as arguments, and any number of valid lines of JESS code",
+        "returns": "TRUE",
+        "description": "A deffunction is a function written in the Jess language. You can call deffunctions from the Jess prompt, from a rule, or from another deffunction. \n\n Example: \n\n ``` \n (deffunction a (?b ?c) \n     (bind ?d (+ ?b ?c)) \n     (return ?d) \n ) \n ```"
+    },
+    "defglobal": {
+        "title": "(defglobal (?*<name>* = <any>)+)",
+        "arguments": "Any number of (global name, = sign, value) sets",
+        "returns": "TRUE",
+        "description": "A defglobal construct defines one or more global variables and sets their initial values. The name of a global variable must begin and and with an asterisk (*). \n\n Example: \n\n ``` \n (defglobal ?*a* = 1 ?*b* = 2) \n ```"
+    },
+    "defmodule": {
+        "title": "(defmodule <symbol> [<string-expression>])",
+        "arguments": "The name of the defmodule (a symbol) and an optional documentation string",
+        "returns": "TRUE",
+        "description": "The defmodule construct introduces a Jess module. The current module is set to be the new module, so any rules defined after a defmodule will implicitly belong to that module."
+    },
+    "defquery": {
+        "title": "(defquery <symbol> [<string-expression>] [(declare [(variables <variable>+)] [(node-index-hash <number>)] [(max-background-rules <number>)])] <rule-pattern>*)",
+        "arguments": "The name of the defquery (a symbol), an optional documentation string, optional declarations of `variables`, `node-index-hash`, and `max-background-rules`, and any number of rule patterns",
+        "returns": "TRUE",
+        "description": "A *query* consists of an optional variable declaration followed by a list of `rule patterns`. A rule pattern is either a *pattern*, or a grouping construct like `and`, `or`, or `not`. Queries are used to search working memory for facts that satisfy the conditional elements. A query can be invoked using the `run-query*` function. \n\n Example: \n\n ``` \n (defquery a \n     \"triggers if c and d are both in the fact space and b is true\"     (declare (variables ?b)) \n     (and (c) (d)) \n     (test (= ?b TRUE)) \n ) \n ```"
+    },
+    "defrule": {
+        "title": "(defrule <symbol> [<string-expression>] [(declare [(salience <number>)] [(node-index-hash <number>)] [(auto-focus <boolean>)] [(no-loop <boolean>)])] <rule-pattern>* => <expression>*)",
+        "arguments": "The name of the defrule (a symbol), an optional documentation string, optional declarations of `salience`, `node-index-hash`, `auto-focus`, and `no-loop`, any number of rule patterns an => symbol, and any number of valid jess expressions",
+        "returns": "TRUE",
+        "description": "A *rule* consists of a left-hand side, the symbol `=>`, and a right-hand side, in that order. The left-hand side is made up of zero or more `rule patterns`, while the right-hand side consists of zero or more function calls. A conditional element is either a *pattern*, or a grouping construct like `and`, `or`, or `not`. The conditional elements are matched against Jess's working memory. When they all match, and if the engine is running, the code on the rule's right-hand side will be executed. \n\n Example: \n\n ``` \n (defrule a \n     \"triggers when b is asserted\" \n     (declare (salience 1)) \n     (b) \n     => \n     (printout t \"b asserted\" crlf) \n ) \n ```"
+    },
+    "deftemplate": {
+        "title": "(deftemplate <symbol> [<string-expression>] [(declare [(slot-specific <boolean>)] [(backchain-reactive <boolean>)] [(from-class <symbol>)] [(include-variables <boolean>)] [(ordered <boolean>)])] (slot|multislot <symbol> [(type ANY|INTEGER|FLOAT|NUMBER|SYMBOL|STRING|LEXEME|OBJECT|LONG)] [(default <any>)] [(default-dynamic <any>)])*)",
+        "arguments": "The name of a deftemplate (a symbol), an optional documentation string, optional declarations of `slot-specific`, `backchain-reactive`, `from-class`, `include-variables`, and `ordered`, and any number of `slot`s or `multislot`s",
+        "returns": "TRUE",
+        "description": "A *deftemplate* describes a kind of fact, precisely in the same way as a Java class describes a kind of object. In particular, a deftemplate lists the \"member variables\" (called `slot`s) that this particular kind of fact can have. An optional declarations section can specify other properties of the deftemplate. See [this chapter](http://alvarestech.com/temp/fuzzyjess/Jess60/Jess70b7/docs/memory.html) and [this one](http://alvarestech.com/temp/fuzzyjess/Jess60/Jess70b7/docs/java.html) to learn about what you can do with this construct. \n\n Example: \n\n ``` \n (deftemplate a \"holds a slot b and an integer slot c that cannot be reordered\" (declare (ordered TRUE)) (slot b) (slot c (type INTEGER))) \n ```"
     }
 }

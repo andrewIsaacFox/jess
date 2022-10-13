@@ -3,7 +3,7 @@ import * as function_documentation from '../src/jess.json';
 
 vscode.languages.registerHoverProvider('jess', {
     provideHover(document, position, token) {
-        const range = document.getWordRangeAtPosition(position, /[^\(\) \[\]\{\}\r\n]+/);
+        const range = document.getWordRangeAtPosition(position, /[^\(\) \[\]\{\}"\r\n]+/);
 
         if (range !== undefined) {
             const word: string = document.getText(range);

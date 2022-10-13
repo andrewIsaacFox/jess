@@ -32,7 +32,7 @@
             "action": {"indent": "indentOutdent"}
         },
         {
-            "beforeText": ".*/\\*.*",
+            "beforeText": ".*/\\*((\\*[^/])|[^\\*])*$",
             "afterText": ".*\\*/.*",
             "action": {"indent": "indentOutdent", "appendText": "** "}
         },

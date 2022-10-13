@@ -4,7 +4,7 @@ const vscode = require("vscode");
 const function_documentation = require("../src/jess.json");
 vscode.languages.registerHoverProvider('jess', {
     provideHover(document, position, token) {
-        const range = document.getWordRangeAtPosition(position, /[^\(\) \[\]\{\}\r\n]+/);
+        const range = document.getWordRangeAtPosition(position, /[^\(\) \[\]\{\}"\r\n]+/);
         if (range !== undefined) {
             const word = document.getText(range);
             if (function_documentation.hasOwnProperty(word)) {
