@@ -1194,7 +1194,7 @@
         "title": "(defquery <symbol> [<string-expression>] [(declare [(variables <variable>+)] [(node-index-hash <number>)] [(max-background-rules <number>)])] <rule-pattern>*)",
         "arguments": "The name of the defquery (a symbol), an optional documentation string, optional declarations of `variables`, `node-index-hash`, and `max-background-rules`, and any number of rule patterns",
         "returns": "TRUE",
-        "description": "A *query* consists of an optional variable declaration followed by a list of `rule patterns`. A rule pattern is either a *pattern*, or a grouping construct like `and`, `or`, or `not`. Queries are used to search working memory for facts that satisfy the conditional elements. A query can be invoked using the `run-query*` function. \n\n Example: \n\n ``` \n (defquery a \n     \"triggers if c and d are both in the fact space and b is true\"     (declare (variables ?b)) \n     (and (c) (d)) \n     (test (= ?b TRUE)) \n ) \n ```"
+        "description": "A *query* consists of an optional variable declaration followed by a list of `rule patterns`. A rule pattern is either a *pattern*, or a grouping construct like `and`, `or`, or `not`. Queries are used to search working memory for facts that satisfy the conditional elements. A query can be invoked using the `run-query*` function. \n\n Example: \n\n ``` \n (defquery a \n     \"triggers if c and d are both in the fact space and b is true\" \n     (declare (variables ?b)) \n     (and (c) (d)) \n     (test (= ?b TRUE)) \n ) \n ```"
     },
     "defrule": {
         "title": "(defrule <symbol> [<string-expression>] [(declare [(salience <number>)] [(node-index-hash <number>)] [(auto-focus <boolean>)] [(no-loop <boolean>)])] <rule-pattern>* => <expression>*)",

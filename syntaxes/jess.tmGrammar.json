@@ -109,7 +109,7 @@
         },
         "query": {
             "name": "keyword.query",
-            "match": "(?<![a-zA-Z0-9_-])(count-query-results|run-query|run-query\\*)(?![a-zA-Z0-9_-])"
+            "match": "(?<![a-zA-Z0-9_-])(count-query-results|run-query|run-query\\*)(?![a-zA-Z0-9_\\$-])"
         },
         "control": {
             "name": "keyword.structure",
@@ -145,7 +145,7 @@
         },
         "fact": {
             "name": "keyword.fact",
-            "match": "(?<![a-zA-Z0-9_-])(assert|assert-string|dependencies|dependents|duplicate|fact-id|fact-slot-value|facts|load-facts|modify|remove|retract|retract-string|save-facts|save-facts-xml|slot|test)(?![a-zA-Z0-9_-])"
+            "match": "(?<![a-zA-Z0-9_-])(assert|assert-string|dependencies|dependents|duplicate|fact-id|fact-slot-value|facts|load-facts|modify|multislot|remove|retract|retract-string|save-facts|save-facts-xml|slot|test)(?![a-zA-Z0-9_-])"
         },
         "def": {
             "name": "keyword.def",
